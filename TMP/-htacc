@@ -1,0 +1,59 @@
+AddDefaultCharset UTF-8
+## ErrorDocument 400 https://mrakcw.cc.ua/404.html
+## ErrorDocument 401 https://mrakcw.cc.ua/404.html
+## ErrorDocument 403 https://mrakcw.cc.ua/404.html
+ErrorDocument 404 https://mrakcw.cc.ua/404.html
+## ErrorDocument 500 https://mrakcw.cc.ua/404.html
+
+<ifmodule mod_expires.c>
+<filesmatch ".(jpg|gif|png|css|js)$">
+ExpiresActive on
+Header set Cache-Control "private, proxy-revalidate, max-age=36288000"
+ExpiresDefault "access plus 1 year"
+</filesmatch>
+</ifmodule>
+
+<IfModule mod_rewrite.c>
+Options +FollowSymLinks
+RewriteEngine on
+RewriteBase /
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://mrakcw.cc.ua/ [L,NE,R=301]
+</IfModule>
+
+
+
+# custom config settings here
+
+
+## https://openlitespeed.org/kb/migrate-apache-rewrite-rules-to-openlitespeed/
+## --------------------------------- ##
+
+## Redirect www to HTTPS:
+## RewriteCond %{HTTP_HOST} ^www\.your-domain\.com
+## RewriteRule (.*) https://your-domain.com/$1 [R=301,L]
+
+## --------------------------------- ##
+
+## Header set 
+<IfModule mod_headers.c>
+## Header set Accept-Ranges "none"
+## Header set X-Content-Type-Options "nosniff"
+## Header set X-XSS-Protection "1; mode=block"
+## Header set X-Frame-Options "DENY"
+## Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+## Header set Content-Security-Policy "default-src 'self' *.mrakcw.cc.ua; report-uri https://mrakcw.cc.ua/report.php"
+## Header set Referrer-Policy "origin-when-cross-origin"
+ Header set Permissions-Policy "allow"
+## Header set X-Permitted-Cross-Domain-Policies "none"
+## Header set Clear-Site-Data "cookies, storage"
+## Header set Cross-Origin-Resource-Policy "same-origin"
+## Header set Cross-Origin-Embedder-Policy "require-corp"
+## Header set Cross-Origin-Opener-Policy "same-origin"
+## CORS
+## Header set Access-Control-Allow-Origin "https://mrakcw.cc.ua"
+## Header set Access-Control-Allow-Methods "POST, GET, OPTIONS"
+## Header set Access-Control-Allow-Headers "X-PINGOTHER"
+## Header set Access-Control-Max-Age "86400"
+</IfModule>

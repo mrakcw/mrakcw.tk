@@ -1,0 +1,17 @@
+User-Agent: *
+Allow: /*
+Disallow: /*.php
+Disallow: /?ref*
+
+User-Agent: W3C-checklink
+Disallow:
+Allow: /*
+
+User-agent: AhrefsSiteAudit
+Allow: /*
+
+User-agent: AhrefsBot
+Allow: /*
+
+Host: mrakcw.tk
+Sitemap: https://mrakcw.tk/sitemap.xml
