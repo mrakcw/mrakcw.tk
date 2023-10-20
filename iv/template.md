@@ -1,67 +1,70 @@
-# This sample template explores how we can turn the Medium post on the left into a Telegram Instant View page as shown on the right — in several simple steps. If you're unsure what some of the elements used here do, check out the full documentation here: https://instantview.telegram.org/docs
+# В этом образце шаблона показано, как мы можем превратить сообщение Medium слева в страницу мгновенного просмотра Telegram, как показано справа, за несколько простых шагов. Если вы не уверены, что делают некоторые из используемых здесь элементов, ознакомьтесь с полной документацией здесь.: https://instantview.telegram.org/docs
 
-# Place the version at the beginning of template. We recommend always using the latest available version of Instant View.
+# Поместите версию в начало шаблона. Мы рекомендуем всегда использовать последнюю доступную версию Instant View.
 ~version: "2.0"
 
-### STEP 1: Define which pages get Instant View and which don't
+### ШАГ 1. Определите, какие страницы поддерживают мгновенный просмотр, а какие нет.
 
-# We only want to generate Instant View pages for articles. Other things, like lists of articles, profiles, the about section, etc. should be ignored.
-# Conveniently, all article pages on Medium seem to have a <meta property="article:published_time"> tag.
-# If this tag is not present, we'll assume that the page is not an article and does not require an Instant View page.
-# This *condition* does the trick:
+# Мы хотим создавать только страницы мгновенного просмотра для статей. Другие вещи, такие как списки статей, профили, раздел «О программе» и т. д., следует игнорировать.
+# Удобно, что на всех страницах статей на Medium есть <meta property="article:published_time"> tag.
+# Если этот тег отсутствует, мы будем считать, что страница не является статьей и не требует страницы мгновенного просмотра.
+# Этот *condition* делает свое дело:
 ?exists: /html/head/meta[@property="article:published_time"]
 
-### STEP 2: Define the essential elements
+### ШАГ 2: Определите основные элементы
 
-# The 'body' and 'title' *properties* are required for an Instant View page to work. 
-# 'Subtitle' is optional for IV pages, but Medium posts can have subtitles, so it is essential that we reflect this in our template.
+# Свойства body и title необходимы для работы страницы Instant View.
+# «Субтитры» не являются обязательными для страниц IV, но сообщения Medium могут иметь субтитры, поэтому важно отразить это в нашем шаблоне.
 body:     //article
 title:    $body//h1[1]
 subtitle: $title/next-sibling::h2
 
-### Now we'll set a cover image. It's also not required, but we need one if we want our Instant view page to look cool.
+### Теперь мы установим изображение обложки. Это также не обязательно, но оно нам нужно, если мы хотим, чтобы наша страница мгновенного просмотра выглядела круто.
 
-# Some Medium posts have a cover image in the header background, we can use that.
-# First, let's assign the background node to the '$bg_section' *variable* for subsequent use.
+# Некоторые сообщения Medium имеют обложку на фоне заголовка, мы можем ее использовать.
+# Во-первых, давайте назначим фоновый узел *переменной* '$bg_section' для последующего использования.
 $bg_section: $body//section[has-class("is-imageBackgrounded")]
-# Call the @background_to_image *function* to convert the background image to an <img>
+
+# Вызовите функцию @background_to_image *, чтобы преобразовать фоновое изображение в <img>
 @background_to_image: $bg_section//div[has-class("section-backgroundImage")]
-# Replace the //div tag with <figure> tags.
+
+# Замените тег //div на <figure> tags.
 <figure>: $bg_section//div[has-class("section-background")]
-# Set the figure as the value of the 'cover' *property*.
+
+# Установите цифру в качестве значения «обложки» *property*.
 cover: $bg_section//figure
 
-# If we didn't find a cover image, check a few other blocks that may contain it.
-# Note that 'cover:' is a *property*, so by default it will not be overwritten once we've assigned a value for the first time. This means that each of the following rules will only be applied if we don't have a cover yet.
+# Если мы не нашли изображение обложки, проверьте несколько других блоков, которые могут его содержать.
+# Обратите внимание, что «cover:» — это *property*, поэтому по умолчанию оно не будет перезаписано после первого присвоения значения. Это означает, что каждое из следующих правил будет применяться только в том случае, если у нас еще нет покрытия.
 cover: $title/preceding::figure[.//img][not(has-class("is-partialWidth"))]
 cover: $title/next-sibling::figure[.//img]
 cover: $subtitle/next-sibling::figure[.//img]
 cover: //figure[has-class("graf--layoutFillWidth")]
 
-### Now to find an image for link previews. Links shared via Telegram will show an extended preview with a small picture in the chat. Let's try to find something for this image.
+### Теперь нужно найти изображение для превью ссылок. Ссылки, опубликованные через Telegram, будут показывать расширенный предварительный просмотр с небольшой картинкой в ​​чате. Давайте попробуем найти что-нибудь к этому изображению.
 
-# If we've already got a cover, we'll use it for the link preview image too.
+# Если у нас уже есть обложка, мы будем использовать ее и для изображения предварительного просмотра ссылки.
 image_url: $cover/self::img/@src
 image_url: $cover/self::figure//img/@src
 
-# If we didn't find a cover, we'll take a picture from the meta tags. 
-# Otherwise, the link preview will just have text in it, which is also OK.
+# Если обложку не нашли, то возьмем картинку по метатегам.
+# В противном случае предварительный просмотр ссылки будет содержать только текст, что тоже нормально.
 image_url: //head/meta[@property="og:image"]/@content
 
-### STEP 3: Further refinements
+### ШАГ 3: Дальнейшие улучшения
 
-# Pullquote in Medium contains a 'strong' tag, but this shouldn't make the whole quote bold.
+# Pullquote в Medium содержит тег «strong», но это не должно делать всю цитату жирной.
 <span>:  //blockquote[has-class("graf--pullquote")]//strong
 <aside>: //blockquote[has-class("graf--pullquote")]
 
-# Now we'll inline embeds that are wrapped in additional frames using the '@inline' *function*.
+# Теперь мы встроим встраивания, заключенные в дополнительные фреймы, с помощью'@inline' *function*.
 @inline: $body//iframe[starts-with(@src, "/media/")]
 
-# Medium shows preformatted blocks/blockquotes together if they are next to each other, we'll combine them using two breaks as a separator.
+# Medium отображает предварительно отформатированные блоки/цитаты вместе, если они находятся рядом друг с другом. Мы объединим их, используя два разрыва в качестве разделителя.
 @combine(<br>,<br>): $body//pre/next-sibling::pre
 @combine(<br>,<br>): $body//blockquote/next-sibling::blockquote
 
-# Medium articles can contain embedded link previews, we'll show such previews as blockquotes.
+# Статьи Medium могут содержать встроенные превью ссылок, мы будем показывать такие превью в виде цитирования.
 $embed:           $body//div[has-class("graf--mixtapeEmbed")]
 @remove:          $embed//a[has-class("mixtapeImage")]
 $embed_link:      $embed/a
@@ -70,23 +73,23 @@ $embed_link:      $embed/a
 @wrap(<cite>):    $embed_link
 <blockquote>:     $embed
 
-## STEP 4: Cleanup
+## ШАГ 4: Очистка
 
-# Remove excessive nodes, we don't need them on the IV page.
+# Удалите лишние узлы, на IV странице они нам не нужны.
 @remove: //article/header
 @remove: //article/footer
 @remove: $body//a[contains(@href,"/adServer.bs")]
 @remove: $body//p//*[has-class("graf-dropCap")]//img[has-class("graf-dropCapImage")]
 @remove: $body//*[has-class("js-postMetaLockup")][.//a[@data-action="show-user-card"]]
 
-# Remove the first divider, it's invisible on Medium pages anyway.
+# Удалите первый разделитель, он все равно невидим на страницах среднего размера.
 @remove: $body//section[1]//hr
 @remove: $body//section[has-class("section--first")]//hr
 @remove: $body//section[has-class("section--cover")]/following-sibling::*[1]/self::section//hr
 @remove: $body//section[has-class("is-backgrounded")]/following-sibling::*[1]/self::section//hr
 
-# Some pages use thin images as a divider. Telegram doesn't like thin images much, so we'll replace them with a simple divider.
+# На некоторых страницах в качестве разделителя используются тонкие изображения. Telegram не очень любит тонкие изображения, поэтому заменим их простым разделителем.
 @before(<hr>): $body//figure[.//img[number(@data-height) < 30][(number(@data-width) > number(@data-height) * 30)]]
 @remove
 
-### And that's it, we're done. Now the rules from the '..after' block will be applied and the Instant View page is ready. Feel free to click on the panel below to see what exactly is done in the '..after' section.
+### И все, мы закончили. Теперь правила из блока «..after» будут применены, и страница мгновенного просмотра готова. Не стесняйтесь нажать на панель ниже, чтобы увидеть, что именно делается в разделе «..после».
