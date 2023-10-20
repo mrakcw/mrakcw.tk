@@ -42,10 +42,26 @@ RewriteEngine on
 # RewriteRule .* http://%{HTTP_HOST}%{REQUEST_URI}/ [L,R=301]
 
 # Ensure all directory URLs have a trailing slash for HTTPS:
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_URI} !\/$
-RewriteCond %{REQUEST_URI} !\/[^\/]*\.[^\/]+$
-RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI}/ [L,R=301]
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_URI} !\/$
+# RewriteCond %{REQUEST_URI} !\/[^\/]*\.[^\/]+$
+# RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI}/ [L,R=301]
 
 # 301 Redirect URLs.
-Redirect 301 https://mrakcw.tk/cv.html https://mrakcw.tk/cv/
+# Redirect 301 https://mrakcw.tk/cv.html https://mrakcw.tk/cv/
+
+# ANOTHER RULES
+
+# RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^www.mrakcw.tk [NC]
+RewriteRule (.*) https://mrakcw.tk/$1 [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*[^/])$ /$1/ [R=301,L]
+
+ErrorDocument 404 /404/
+
+RewriteCond %{HTTP:Accept-Language} (uk) [NC]
+RewriteRule ^$ /ua/ [L]
