@@ -2,6 +2,7 @@ User-Agent: *
 Allow: /*
 Disallow: /*.php
 Disallow: /?ref*
+Disallow: /iv/*
 
 User-Agent: W3C-checklink
 Disallow:
