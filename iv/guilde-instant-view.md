@@ -120,7 +120,7 @@
   @set_attr(dir, "rtl"): /html   # альтернативный способ
 ```
 
-## Supported types
+## Поддерживаемые типы
 
 Объект страницы IV может содержать следующие **типы**:
 
@@ -170,73 +170,69 @@
 | Reference | RichText | Ссылка | <reference> с именем атрибута, содержащим ссылочное имя |
 | LineBreak | – | Разрыв строки | <br> |
 
-### Note on code languages
+## Примечание о языках кода
 
-Telegram apps currently do not support code highlighting, but they will in the future. For this reason, it is advisable to include the code language attribute (`data-language`) for large `<pre>` blocks if it is supplied in the source.
+Приложения Telegram в настоящее время не поддерживают подсветку кода, но в будущем она будет поддерживаться. По этой причине желательно включать атрибут языка кода (`data-language`) для больших блоков `<pre>`, если он указан в исходном коде.
 
-### Types of Rules
+## Типы правил
 
-Instant View rules are instructions that tell our IV bot where to find the meta-elements on the source page and how it should modify the content of the page when an Instant View page is created.
+Правила Instant View — это инструкции, которые сообщают нашему боту IV, где найти метаэлементы на исходной странице и как ему следует изменить содержимое страницы при создании страницы Instant View.
 
-Each new line in a template describes a new rule. When the bot renders a page into the Instant View format, it applies rules from the relevant template one after another and ignores any empty lines. You can leave comments by starting a line with `#`, all following text on that line will be ignored unless enclosed in quote marks. You can use the `\` symbol to carry a rule over to the next string, like this:
+Каждая новая строка в шаблоне описывает новое правило. Когда бот преобразует страницу в формат Instant View, он применяет правила из соответствующего шаблона одно за другим и игнорирует любые пустые строки. Вы можете оставлять комментарии, начиная строку с `#`, весь следующий текст в этой строке будет игнорироваться, если он не заключен в кавычки. Вы можете использовать символ `\` для переноса правила на следующую строку, например:
 
 ```
-# Comment
+# Комментарий
 # You can break up \
   a long rule into \
   multiple strings
 ```
 
-Most rules are based on [XPath 1.0](https://www.w3.org/TR/xpath/) expressions used to locate the required nodes on the source page.
+Большинство правил основано на [XPath 1.0](https://www.w3.org/TR/xpath/) выражения, используемые для поиска необходимых узлов на исходной странице.
 
-A block of rules may have a name. In this case, it can be reused in other rules.
+Блок правил может иметь имя. В этом случае его можно повторно использовать в других правилах.
 
-We support the following types of rules:
+Мы поддерживаем следующие типы правил:
 
-### Conditions
+## Условия
 
-Conditions offer unlimited flexibility for your templates. Rules of this type begin with the symbols `?` or `!` and use the following format:
-
-```
-?condition:  xpath_query   # condition example
-!condition:  regexp        # parameter on the right depends on the type of the condition
-?condition                 # some conditions don't have parameters
-```
-
-Groups of conditions that immediately follow one another are interpreted as a block. `?`-rules follow the OR logic when joined, while `!`-rules follow the AND logic. This means that for the bot to apply each block, all `!`-conditions in the block and at least one of the `?`-conditions within it must be met. This also means that each block must have at least one `?`-condition.
-
-Blocks of conditions split your rule set into groups. Groups of rules that do not have any conditions are always applied. All other groups are only applied if their conditions are met.
-
-**Examples**
+Условия предлагают неограниченную гибкость для ваших шаблонов. Правила этого типа начинаются с символов `?` или `!` и имеют следующий формат:
 
 ```
-# If a rule is placed here, it will be applied
-# Same with the one here
+?condition:  xpath_query   # пример условия
+!condition:  regexp        # параметр справа зависит от типа условия
+?condition                 # некоторые условия не имеют параметров
+```
 
-?false               # This condition is always false
-# The rule placed here will never be applied, because the condition is not met
-# Very useful indeed
+Группы условий, которые следуют друг за другом, интерпретируются как блок. `?`-правила следуют логике ИЛИ при объединении, а `!`-правила следуют логике И. Это означает, что для того, чтобы бот применил каждый блок, должны быть выполнены все `!`-условия в блоке и хотя бы одно из `?`-условий внутри него. Это также означает, что каждый блок должен иметь хотя бы одно `?`-условие.
 
-?exists: //article   # This condition is true if the page has an article tag
-# On these lines, a new group of rules is located, and it will be applied if
-# there's an article tag on the page, despite the ?false condition above
+Блоки условий разбивают набор правил на группы. Группы правил, не содержащие каких-либо условий, применяются всегда. Все остальные группы применяются только при соблюдении их условий.
+
+**Примеры**
+
+```
+# Если здесь размещено правило, оно будет применено.
+# То же самое с тем, что здесь
+
+?false               # Это условие всегда ложно
+# Помещенное здесь правило никогда не будет применено, поскольку условие не выполнено.
+# Действительно очень полезно
+
+?exists: //article   # Это условие истинно, если на странице есть тег статьи.
+# На этих строках располагается новая группа правил, и она будет применяться, если
+# на странице есть тег статьи, несмотря на условие ?false выше
 
 ?exists: //article
 ?exists: //div[@id="article"]
 !exists: //meta[@property="og:title"]
-# The rules below this block will be applied if an <article> tag or a
-# <div id="article"> can be found, this tag must also be present: <meta property="og:title">
+# Правила ниже этого блока будут применяться, если тег <article> или
+# <div id="article"> можно найти, этот тег также должен присутствовать: <meta property="og:title">
 ```
 
-> 
-> 
-> 
 > [Check out the Supported Conditions to see what works out of the box »](https://instantview.telegram.org/docs#supported-conditions)
-> 
 
-### Properties
+## Характеристики
 
-Properties are the building blocks for your IV page. Check the [Instant View Format](https://instantview.telegram.org/docs#instant-view-format) for a list of properties that can be used when creating IV pages (you can also define custom properties, but they will not be used anywhere on the resulting IV page). Use this format to fill properties:
+Свойства — это строительные блоки вашей IV-страницы. Проверить [Instant View Формат](https://instantview.telegram.org/docs#instant-view-format) для списка свойств, которые можно использовать при создании IV-страниц (вы также можете определить пользовательские свойства, но они не будут использоваться нигде на результирующей IV-странице). Используйте этот формат для заполнения свойств:
 
 ```
 property: xpath_query
@@ -244,206 +240,184 @@ property: "Some string"
 property: null
 ```
 
-Properties store the first node that matches the XPath expression `xpath_query`. By default, if a property already has a value, it will **not** be overwritten. You can change this behavior by adding `!` to the property name – in this case a new non-empty value can be assigned. If you add `!!` to the property name, even an empty new value can be assigned to the property.
+В свойствах хранится первый узел, соответствующий выражению XPath `xpath_query`. По умолчанию, если свойство уже имеет значение, оно **not** будет перезаписано. Вы можете изменить это поведение, добавив `!` к имени свойства — в этом случае можно присвоить новое непустое значение. Если вы добавите `!!` к имени свойства, свойству можно присвоить даже пустое новое значение.
 
-You can also assign a `string` to the property instead of the `xpath_query`. In this case, the property will contain a text element with the specified text. It is also possible to assign `null` to discard the property's value (will only work with `!!`).
+Вы также можете присвоить свойству строку вместо xpath_query. В этом случае свойство будет содержать текстовый элемент с указанным текстом. Также можно присвоить `null`, чтобы отбросить значение свойства (работает только с `!!`).
 
-**Examples**
+**Примеры**
 
 ```
-title:   //article//h1      # Looking for the 'title' in the article heading
-title:   //h1               # If not found, checking for any headings at all
-title:   //head/title       # If no luck either, trying the <title> tag
-?path: /blog/.*             # On pages in the /blog/ section
-title!:  //div[@id="title"] # we prefer to use <div id="title">, if present
-?path: /news/.*             # On pages in the /news/ section
-title!!: //h3               # title is always in an h3 tag
+title:   //article//h1      # Ищет 'title' в статье
+title:   //h1               # Если не найден, проверка вообще на наличие заголовков
+title:   //head/title       # Если тоже не повезет, попробуйте тег <title>
+?path: /blog/.*             # На страницах в /blog/ раздел
+title!:  //div[@id="title"] # мы предпочитаем использовать <div id="title">, если имеется
+?path: /news/.*             # На страницах в /news/ раздел
+title!!: //h3               # заголовок всегда находится в теге h3
 
-author:   //article/@author  # Get author name from the author attribute
+author:   //article/@author  # Получить имя автора из атрибута автора
 ?exists:  //article[has-class("anonymous")]
-author!!: null               # Don't display author for anonymous posts
+author!!: null               # Не отображать автора сообщений
 ```
 
-> 
-> 
-> 
-> **Reminder:** The *title* and *body* properties are required for an IV page to be created.
-> 
 
-### Variables
+> **Напоминание.** Свойства *title* и *body* необходимы для создания IV-страницы. 
 
-Variables are useful for storing and manipulating nodes before assigning them to [properties](https://instantview.telegram.org/docs#properties) for the final IV page. Variable names begin with the `$` symbol. Use this format to initialize them:
+## Переменные
+
+Переменные полезны для хранения узлов и управления ими перед назначением их [свойствам](https://instantview.telegram.org/docs#properties) для последней IV страницы. Имена переменных начинаются с символа `$`. Используйте этот формат для их инициализации:
 
 ```
 $variable: xpath_query
-$variable: "Some text"
+$variable: "Немного текста"
 $variable: null
 ```
 
-Variables store a list of nodes that match the Xpath expression `xpath_query`. If a variable is assigned for the second time, its previous value is overwritten. You can change this behavior by adding `?` to the variable name. You can also append a list of nodes to the previous one by adding `+` to the variable name.
+Переменные хранят список узлов, соответствующих выражению Xpath `xpath_query`. Если переменная присваивается второй раз, ее предыдущее значение перезаписывается. Вы можете изменить это поведение, добавив `?` к имени переменной. Вы также можете добавить список узлов к предыдущему, добавив «+» к имени переменной.
 
-You can also assign a `string` to the variable instead of the `xpath_query`. In this case, the variable will contain a list with one text element that has the specified text. It is also possible to assign `null` to discard the variable's value.
+Вы также можете присвоить переменной `string` вместо xpath_query. В этом случае переменная будет содержать список с одним текстовым элементом, содержащим указанный текст. Также возможно присвоить `null`, чтобы отбросить значение переменной.
 
-**Examples**
+**Примеры**
 
 ```
 $images:  //img
-$images:  //img[@src]     # the previous value will be overwritten
-$images?: //article//img  # a new value will only be assigned if the variable is empty
+$images:  //img[@src]     # предыдущее значение будет перезаписано
+$images?: //article//img  # новое значение будет присвоено только в том случае, если переменная пуста
 $medias:  //img
-$medias+: //video         # now $medias contains all img and video tags
+$medias+: //video         # теперь $medias содержит все теги img и video
 ```
 
-### Options
+## Параметры
 
-Options affect how the page is processed by the bot. Options begin with the `~` symbol. Use this format to set them:
+Параметры влияют на то, как страница обрабатывается ботом. Опции начинаются с символа `~`. Используйте этот формат, чтобы установить их:
 
 ```
 ~option: "value"
 ~option: true
 ```
 
-Options can be set with values in JSON format.
+Параметры можно задать со значениями в формате JSON.
 
-**Examples**
+**Примеры**
 
 ```
 ~version: "2.1"
 ```
 
-> 
-> 
-> 
-> Check out [Supported Options](https://instantview.telegram.org/docs#supported-options) to see what else works out of the box.
-> 
+> Ознакомьтесь с [Поддерживаемые параметрами](https://instantview.telegram.org/docs#supported-options) чтобы посмотреть, что еще работает «из коробки».
 
-### Functions
+## Функции
 
-Functions are extremely flexible, but you'll probably mostly use them to strip unnecessary nodes from the page and to replace certain elements with others. Function names begin with the `@` symbol, you can use the following format:
+Функции чрезвычайно гибки, но вы, вероятно, в основном будете использовать их для удаления ненужных узлов со страницы и замены одних элементов другими. Имена функций начинаются с символа `@`, вы можете использовать следующий формат:
 
 ```
-@function:                 xpath_query   # a function without parameters
-@function(param):          xpath_query   # additional parameters are placed in paretheses
-@function(p1 p2):          xpath_query   # a function with two parameters
-@function(p1, "param #2"): xpath_query   # parameters can be separated by commas
-                                         # and enclosed in quote marks when needed
-@function:                 "Some text"   # use string instead of xpath_query if needed
+@function:                 xpath_query   # функция без параметров
+@function(param):          xpath_query   # дополнительные параметры помещаются в круглые скобки
+@function(p1 p2):          xpath_query   # функция с двумя параметрами
+@function(p1, "param #2"): xpath_query   # параметры можно разделять запятыми
+                                         # и при необходимости заключайте в кавычки
+@function:                 "Some text"   # при необходимости используйте строку вместо xpath_query
 ```
 
-The main argument of a function is a list of nodes that match the Xpath expression `xpath_query`. You can also use a `string` as the main argument instead of an `xpath_query`. In this case, the main argument passed to the function will be a list with one text element that has the specified text.
+Основным аргументом функции является список узлов, соответствующих выражению Xpath `xpath_query`. Вы также можете использовать `string` в качестве основного аргумента вместо `xpath_query`. В этом случае основным аргументом, передаваемым в функцию, будет список с одним текстовым элементом, содержащим указанный текст.
 
-**Examples**
-
-```
-@remove:            //header               # removes all <header> tags found on the page
-@replace_tag(<h1>): //div[@class="header"] # replaces all <div class="header"> tags with <h1>
-<h1>:               //div[@class="header"] # an alias for @replace_tag(<h1>)
-```
-
-**Note:** You may find the [@debug function](https://instantview.telegram.org/docs#debug) particularly useful when creating XPath expressions.
-
-> 
-> 
-> 
-> Check out [Supported Functions](https://instantview.telegram.org/docs#supported-functions) to see what else works out of the box.
-> 
-
-### Block Functions
-
-Block functions manipulate blocks of rules. Block function names also begin with the `@` symbol, you can use the following format:
+**Примеры**
 
 ```
-@function(xpath_query) {   # opening bracket should be at the end of the line
-  $variable: xpath_query   # some other rules here
-  @function: $@            #   inside the block function
-}                          # closing bracket should be on a separate line
+@remove:            //header               # удаляет все теги <header>, найденные на странице
+@replace_tag(<h1>): //div[@class="header"] # заменяет все теги <div class="header"> на <h1>
+<h1>:               //div[@class="header"] # псевдоним для @replace_tag(<h1>)
 ```
 
-A block function can contain another block function so they can be nested. Block function can not contain [conditions](https://instantview.telegram.org/docs#conditions).
+**Примечание:** Вы можете найти функцию [@debug](https://instantview.telegram.org/docs#debug) особенно полезно при создании выражений XPath.
 
-> 
-> 
-> 
-> Please note that block functions that execute a block of rules several times **(map**, **repeat**, **while**, **while_not)** have a limit on the total number of iterations for the entire template.
-> 
+> Ознакомьтесь с [Поддерживаемые функции](https://instantview.telegram.org/docs#supported-functions) чтобы посмотреть, что еще работает «из коробки».
 
-**Examples**
+## Block Functions
+
+Блочные функции управляют блоками правил. Имена функций блоков также начинаются с символа `@`, вы можете использовать следующий формат:
 
 ```
-@if( //article ) {    # if <article> exists
-  @append(<p>): $$    #   append paragraph into it
+@function(xpath_query) {   # открывающая скобка должна находиться в конце строки
+  $variable: xpath_query   # здесь еще несколько правил
+  @function: $@            # внутри функции блока
+}                          # закрывающая скобка должна быть на отдельной строке
+```
+
+Функция блока может содержать другую функцию блока, поэтому их можно вкладывать. Функция блока не может содержать [условия](https://instantview.telegram.org/docs#conditions).
+
+> Обратите внимание, что блочные функции, которые выполняют блок правил несколько раз **(map**, **repeat**, **while**, **while_not)** иметь ограничение на общее количество итераций для всего шаблона.
+
+**Примеры**
+
+```
+@if( //article ) {    # если <article> существует
+  @append(<p>): $$    # добавить в него абзац
 }
 ```
 
-> 
-> 
-> 
-> Check out [Supported Block Functions](https://instantview.telegram.org/docs#supported-block-functions) to see what else works out of the box.
-> 
+> Ознакомьтесь с [Поддерживаемые функции блока](https://instantview.telegram.org/docs#supported-block-functions) чтобы посмотреть, что еще работает «из коробки».
 
-### Include
 
-> 
-> 
-> 
-> **Note:** This is a service rule, it **will not work** in your templates. It was included in this reference to give you a better understanding of how the system works. You can see an example of this rule at work in the [Processing Pages](https://instantview.telegram.org/docs#processing-pages) section.
-> 
+## Включать
 
-Rules of this type begin with the `+` symbol and use the following format:
+> **Примечание:** Это сервисное правило, оно **will not work** в ваших шаблонах. Он включен в этот справочник, чтобы дать вам лучшее понимание того, как работает система. Вы можете увидеть пример работы этого правила в разделе [Страницы обработки](https://instantview.telegram.org/docs#processing-pages).
+
+Правила этого типа начинаются с символа `+` и имеют следующий формат:
 
 ```
 + rules
 ```
 
-This rule inserts a block of rules with the specified name. In most cases, the name corresponds to the domain to which the rules apply.
+Это правило вставляет блок правил с указанным именем. В большинстве случаев имя соответствует домену, к которому применяются правила.
 
-**Examples**
+**Примеры**
 
 ```
-+ core.telegram.org # inserting the block of rules that is used for core.telegram.org
++ core.telegram.org # вставка блока правил, который используется для core.telegram.org
 ?not_exists: $body
-+ telegram.org      # inserting the block of rules that is used for telegram.org
++ telegram.org      # вставка блока правил, который используется для telegram.org
 ```
 
-### Special variables `$$` and `$@`
+## Специальные переменные `$$` и `$@`
 
-The special variables work within a group of rules.
+Специальные переменные работают внутри группы правил.
 
-- The `$$` variable always contains the result of the most recent XPath query.
-- The `$@` variable holds the return of the most recently run function.
+- Переменная `$$` всегда содержит результат самого последнего запроса XPath.
+- Переменная `$@` содержит результат последней запущенной функции.
 
-These variables come in handy when you're creating chains of rules. If a rule is missing xpath_query, the statement is considered to be equal to `$$`.
+Эти переменные пригодятся при создании цепочек правил. Если в правиле отсутствует xpath_query, оператор считается равным `$$`.
 
-**Examples**
+**Примеры**
 
 ```
-# Put a picture into a <figure> tag, then set it as the cover
+# Поместите изображение в тег <figure>, затем установите его в качестве обложки.
 @wrap(<figure>): //img[@id="cover"]
 cover:           $@
 
-# Insert a divider before each div.divider that's no longer required
+# Вставьте разделитель перед каждым div.divider, который больше не требуется.
 @before(<hr>):   //div[has-class("divider")]
-@remove          # this is the same as @remove: $$
+@remove          # это то же самое, что @remove: $$
 ```
 
-### Extended XPath
+## Extended XPath
 
-For your convenience, you can use the following constructs in your XPath expressions.
+Для вашего удобства вы можете использовать следующие конструкции в выражениях XPath.
 
-### Context
+## Context
 
-Regular XPath queries search for nodes in the context of the entire document. To specify the context for a particular expression, you can use variables in the format `$context`. If a matching variable exists, the query will be made relative to each variable node. If it doesn't and a matching property exists, the query will be made relative to the property node. If no matching variables or properties exist, the query return an empty list.
+Обычные запросы XPath ищут узлы в контексте всего документа. Чтобы указать контекст для конкретного выражения, вы можете использовать переменные в формате `$context`. Если соответствующая переменная существует, запрос будет выполнен относительно каждого узла переменной. Если это не так и соответствующее свойство существует, запрос будет выполнен относительно узла свойства. Если соответствующих переменных или свойств не существует, запрос возвращает пустой список.
 
-**Examples**
+**Примеры**
 
 ```
-$headers:      //h1              # all <h1> tags on the page
-article:       //article         # the first <article> tag on the page
-$art_headers:  $article//h1      # all <h1> tags inside article
-$header_links: $art_headers//a   # all <a> tags inside each $art_headers node
+$headers:      //h1              # все теги <h1> на странице
+article:       //article         # первый тег <article> на странице
+$art_headers:  $article//h1      # все теги <h1> внутри статьи
+$header_links: $art_headers//a   # все теги <a> внутри каждого узла $art_headers
 ```
 
-### Zeroing in on nodes
+## Нацеливание на узлы
 
 The result of an XPath query is always a list of matching nodes. If you'd like to narrow the list down to a single node, you can use the following syntax: `(xpath_query)[n]`, where `n` is the number of the desired node. Numbering starts at 1, you can get the last node by using the `last()` function. This syntax can only be applied to the entire expression.
 
@@ -639,7 +613,7 @@ A condition that is always false.
 # Rules that go here will never be applied
 ```
 
-### Supported options
+## Supported options
 
 Below are options supported in Instant View rules.
 
@@ -685,7 +659,7 @@ The value should be *String* or *Array of String*.
 @load: "https://api.example.com/get/article"
 ```
 
-### Supported functions
+## Supported functions
 
 The general format for a function is the following:
 
