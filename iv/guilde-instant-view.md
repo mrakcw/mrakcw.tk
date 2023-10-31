@@ -419,15 +419,15 @@ $header_links: $art_headers//a   # все теги <a> внутри каждог
 
 ## Нацеливание на узлы
 
-The result of an XPath query is always a list of matching nodes. If you'd like to narrow the list down to a single node, you can use the following syntax: `(xpath_query)[n]`, where `n` is the number of the desired node. Numbering starts at 1, you can get the last node by using the `last()` function. This syntax can only be applied to the entire expression.
+Результатом запроса XPath всегда является список совпадающих узлов. Если вы хотите сузить список до одного узла, вы можете использовать следующий синтаксис: `(xpath_query)[n]`, где `n` — номер искомого узла. Нумерация начинается с 1, вы можете получить последний узел, используя `last()` функцию. Этот синтаксис можно применить только ко всему выражению.
 
-**Examples**
+**Примеры**
 
 ```
-$headers:    //h1                    # all <h1> tags on the page
-$header2:    (//h1)[2]               # the second <h1> tag on the page
-$header2:    ($headers)[2]           # same
-$last_link:  ($header2//a)[last()]   # the last link inside $header2
+$headers:    //h1                    # все теги <h1> на странице
+$header2:    (//h1)[2]               # второй тег <h1> на странице
+$header2:    ($headers)[2]           # такой же
+$last_link:  ($header2//a)[last()]   # последняя ссылка внутри $header2
 ```
 
 ### has-class
@@ -613,9 +613,9 @@ A condition that is always false.
 # Rules that go here will never be applied
 ```
 
-## Supported options
+## Поддерживаемые параметры
 
-Below are options supported in Instant View rules.
+Ниже приведены параметры, поддерживаемые правилами Instant View.
 
 ### version
 
@@ -623,22 +623,18 @@ Below are options supported in Instant View rules.
 ~version: "2.1"
 ```
 
-Sets the version of IV used in the template. The behavior of some IV functions may change according to the version provided (see the manual of corresponding function).
+Устанавливает версию IV, используемую в шаблоне. Поведение некоторых функций IV может меняться в зависимости от предоставленной версии (см. руководство по соответствующей функции).
 
-The value must be one of `"1.0"`, `"2.0"` or `"2.1"`. We recommend using the latest version, **2.1**.
+Значение должно быть одним из «1.0», «2.0» или «2.1». Мы рекомендуем использовать последнюю версию **2.1**.
 
-**Examples**
+**Примеры**
 
 ```
 ~version: "2.1"
-# Now you can use new features from IV 2.1
+# Теперь вы можете использовать новые возможности IV 2.1.
 ```
 
-> 
-> 
-> 
-> Please note that `version` should be set at the beginning of the template before any other rules.
-> 
+> Обратите внимание, что `version` должен быть установлен в начале шаблона перед любыми другими правилами.
 
 ### allowed_origin **NEW**
 
@@ -647,9 +643,9 @@ The value must be one of `"1.0"`, `"2.0"` or `"2.1"`. We recommend using the lat
 ~allowed_origin: ["https://example.com", "https://subdomain.example.com"]
 ```
 
-Sets the origin (or the list of origins) from which content can be loaded using the [@load](https://instantview.telegram.org/docs#load-new) and [@inline](https://instantview.telegram.org/docs#inline) functions.
+Устанавливает источник (или список источников), из которого контент может быть загружен с помощью [@load](https://instantview.telegram.org/docs#load-new) и [@inline](https://instantview .telegram.org/docs#inline) функции.
 
-The value should be *String* or *Array of String*.
+Значение должно быть *Строка* или *Массив строк*.
 
 **Examples**
 
