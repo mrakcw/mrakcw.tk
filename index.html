@@ -97,12 +97,12 @@
       /* ! COMPONENTS */
       /* button option */
       #get-contact {border:solid 2px;min-width: 295px;max-width: 295px;width:295px;z-index:2;}
-      #get-contact::before {content: '';background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle fill="green" cx="50" cy="50" r="50"/></svg>');width: 10px;height: 10px;transform: translateX(-.5rem);margin-left: .5rem;}
-      #get-contact::after {content: 'Open to new Projects';}
-      #get-contact:hover::before,#get-contact:hover::after{opacity: 0;}
-      #get-contact:hover {display:flex;margin:0 auto;justify-content:space-around;color:#000;border-color: #eee;border-width:medium;filter:drop-shadow(0px 0px 1px #000);text-shadow:1px 1px 0px #fb3;transition: var(--hover-t);}
-      #get-contact:hover::before{opacity: 1;content:'GET IN TOUCH';background:none; width: auto;height: auto;transition: all .45s cubic-bezier(0.9, 0.1, 0.4, 0.7) .2s;}
-      #get-contact:hover::after{opacity: 1;content:'➜';width:1rem;transition: all .45s cubic-bezier(0.9, 0.1, 0.4, 0.7) .2s;}
+      /* #get-contact::before {content: '';background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle fill="green" cx="50" cy="50" r="50"/></svg>');width: 10px;height: 10px;transform: translateX(-.5rem);margin-left: .5rem;} */
+      /* #get-contact::after {content: 'Open to new Projects';} */
+      /* #get-contact:hover::before,#get-contact:hover::after{opacity: 0;} */
+      #get-contact:hover {display:flex;margin:0 auto;justify-content:space-around;color:#000;border-color: #eee;/*border-width:medium;*/filter:drop-shadow(0px 0px 1px #000);text-shadow:1px 1px 0px #fb3;transition: var(--hover-t);}
+      /* #get-contact:hover::before{opacity: 1;content:'GET IN TOUCH';background:none; width: auto;height: auto;transition: all .45s cubic-bezier(0.9, 0.1, 0.4, 0.7) .2s;} */
+      /* #get-contact:hover::after{opacity: 1;content:'➜';width:1rem;transition: all .45s cubic-bezier(0.9, 0.1, 0.4, 0.7) .2s;} */
       /* ---------- */
       /* dynamic-bg */
       .area{width: 100%; min-height:100vh; height: 100%; position: absolute; top: 0; pointer-events: none}
@@ -204,6 +204,11 @@
         }  
       }
     </script>
+    <!--! Calendly badge widget -->
+    <link href="/assets/css/widget.css" rel="stylesheet">
+    
+    <script src="/assets/js/widget.js" async></script>
+    <!-- <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script> -->
   </head>
   <body>
       <!-- 1st screen -->
@@ -249,7 +254,9 @@
             <div class="column has-text-centered">
               <h1 class="title has-text-white pb-4">HI THERE 👋</h1>
               <p class="subtitle">I'M DENIS aka MRAKCW — FRONT END DEVELOPER.</p>
-              <a class="button is-success is-rounded is-outlined px-6 has-text-weight-bold" id="get-contact" href="#contact"></a>
+              <a class="button is-success is-rounded is-outlined px-6 has-text-weight-bold" id="get-contact" href="#" title="Meet with me">
+            
+              </a>
             </div>
           </div>
         </div>
@@ -262,5 +269,15 @@
 					<p> © 2021-2023 GitHub, Inc.</p>
 				</div>
       </section>
+
+      <!--? Calendly badge widget -->
+      <script>window.onload = function() {
+        Calendly.initBadgeWidget({ 
+         url: 'https://calendly.com/mrakcw/meet', 
+         text: 'Open to new Projects', 
+         color: 'transparent', 
+         textColor: 'inherit', 
+         branding: false }); }
+     </script>
   </body>
 </html>
