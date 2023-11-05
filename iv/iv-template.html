@@ -55,21 +55,22 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
 	</head>
 	<body>
-		<div class="layout__content m_main article">
-			<div itemscope="itemscope" itemtype="http://schema.org/Article" class="article__container" id="example">
+		<div class="layout__content m_main section article">
+			<div itemscope="itemscope" itemtype="http://schema.org/Article" class="article__container container" id="example">
 				<article itemprop="articleBody" class="article__content text">
 					<!-- ? COVER FOR ARTICLE -->
 					<figure itemscope="itemscope" itemtype="http://schema.org/ImageObject">
-						<img src="/assets/img/mrakcw-card.jpg" alt="MrakCw WEB DEVELOPER" itemprop="contentUrl" width="600" height="300">
-						<figcaption itemprop="description">IV Hub</figcaption>
+						<!-- width="600" height="300" -->
+						<img src="/assets/img/mrakcw-card.jpg" alt="MrakCw WEB DEVELOPER" itemprop="contentUrl">
+						<figcaption itemprop="description"><a href="/iv/iv-template.html">IV Hub</a></figcaption>
 					</figure>
 					<header class="article__header">
-						<h1 itemprop="headline" class="article__header_title">Header 1</h1>
-						<div class="blog_name" itemprop="autor">itemprop autor</div>
+						<h1 itemprop="headline" class="article__header_title title">Header 1</h1>
+						<div class="blog_name subtitle" itemprop="autor">itemprop autor</div>
 					</header>
 					<hr>
 					<section>
-						<h2>Navigation</h2>
+						<h2 class="title">Navigation</h2>
 						<nav class="contents">
 							<ul class="contents_list">
 								<!-- <li class="contents_item m_level_1"><a href="/iv/">IV page</a></li> -->
@@ -79,7 +80,7 @@
 					</section>
 					<hr>
 					<section>
-						<h2>Some title H2</h2>
+						<h2 class="title">Some title H2</h2>
 						<p>Maybe little text write</p>
 						<h3>Some new title h3 - OL / UL list</h3>
 						<p>and UL than list:</p>
@@ -91,9 +92,9 @@
 						</ul>
 						<h3>Some new title h3 - accent &amp; code blocks width hightlights</h3>
 					</section>
-					<hr>
+					<!-- <hr> -->
 					<section>
-						<h2>Slide-show</h2>
+						<p>Slide-show</p>
 						<div class="container">
 							<figure>
 								<img class="card-img" src="/assets/img/mrakcw.jpg" alt="Фітодизайн інтер'єру">
