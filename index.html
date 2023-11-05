@@ -68,7 +68,7 @@
       .navbar-item img{ width:100%;height:100%;pointer-events:none;}
       .navbar-brand a .navbar-logo {max-height:44px;filter: drop-shadow(.75pt 0pt 0px #fff) drop-shadow(-.5pt -.5pt 0px #fff);transition: var(--hover-t);}
       .navbar-brand a:hover {filter: invert(1) drop-shadow(2.3pt 3px 0px #fb3);transition: var(--hover-t);}
-      .iv-template{ background: rgb(2, 0, 36); background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 5%, #3431ec 51%, rgba(42, 10, 44, 1) 95%); background-size: 350% 350%; -webkit-animation: AnimateBG 20s ease infinite; animation: AnimateBG 20s ease infinite;}
+      .iv-template{ background: rgb(2, 0, 36); background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 5%, #3431ec 51%, rgba(42, 10, 44, 1) 95%); background-size: 350% 350%; -webkit-animation: AnimateBG 20s ease infinite; animation: AnimateBG 20s ease infinite;overflow: auto;}
       nav.navbar.border{ border-bottom: 3px #fb3 solid; border-top: 3px #fb3 solid;height:64px;}
       /* .title, .subtitle{ text-shadow: -2px -2px 0 #000, 2px 2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; filter: drop-shadow(2px 2px 2px #000);} */
       .iv-template .hero-body{z-index:3;min-height:-webkit-fill-available;height:100%;display:grid;place-items:center;position:relative;}
@@ -166,6 +166,7 @@
       article h1 {margin-top: 1.5rem;}
       a{color:#fff;}
       a:is(:hover,:focus,:focus-visible){color:#fb3;}
+      /* .hero-foot{ height: -webkit-fill-available; position: absolute; bottom: -13rem; left: 0; right: 0;} */
 
       /* ! ANIMATION */
       @-webkit-keyframes AnimateBG{ 0%{ background-position: 0% 50%;} 50%{ background-position: 100% 50%;} 100%{ background-position: 0% 50%;}}
@@ -301,7 +302,7 @@
                       <li class="contents_item m_level_1"><a class="has-text-white" href="#table">Table</a></li>
                     </ul>
                   </nav>
-                  <hr>
+                  <hr class="my-0">
                 </section>
                 <!-- ? Main Section -->
                 <section class="section">
