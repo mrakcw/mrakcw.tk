@@ -12,7 +12,7 @@
 .calendly-badge-widget{position:relative;right:0px;bottom:0px;z-index:9998}
 /* .calendly-badge-widget{position:fixed;right:20px;bottom:15px;z-index:9998} */
 /* .calendly-badge-widget .calendly-badge-content{display:table-cell;width:auto;height:45px;padding:0 30px;border-radius:25px;box-shadow:rgba(0,0,0,.25) 0 2px 5px;font-family:sans-serif;text-align:center;vertical-align:middle;font-weight:700;font-size:14px;color:#fff;cursor:pointer} */
-.calendly-badge-widget .calendly-badge-content{display:grid;place-items:center; width:295px;height:40px;padding:0 30px;border-radius:25px;box-shadow:rgba(0,0,0,.25) 0 2px 5px;font-family:sans-serif;text-align:center;vertical-align:middle;font-weight:700;font-size:14px;color:#fff;cursor:pointer}
+.calendly-badge-widget .calendly-badge-content, .hero-body button.button{display:grid;place-items:center; width:295px;height:40px;padding:0 30px;border-radius:25px;box-shadow:rgba(0,0,0,.25) 0 2px 5px;font-family:sans-serif;text-align:center;vertical-align:middle;font-weight:700;font-size:14px;color:#fff;cursor:pointer}
 .calendly-badge-widget .calendly-badge-content.calendly-white{color:#666a73}
 .calendly-badge-widget .calendly-badge-content span{display:block;font-size:12px}
 .calendly-spinner{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);text-align:center;z-index:-1}

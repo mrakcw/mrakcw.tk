@@ -77,7 +77,6 @@
       figure a[name="article-img"] img {margin: 0 auto;transition: var(--hover-t);}
       figure a[name="article-img"]:hover{filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, .8));transition: var(--hover-t);}
       #menuToggle{filter:opacity(0);}
-      dialog{ position: absolute; top: 1px; left: 1px; right: 1px; z-index: 9;}
       .hero-head{position:fixed;width:100%;height:64px;z-index:9;}
       .hero-body{margin-top:65px;}
       .hero-foot .container{display:flex;justify-content:center;height:100%;min-height:-webkit-fill-available;position:relative}
@@ -157,10 +156,6 @@
         li.navbar-item.has-dropdown:hover .navbar-dropdown a.navbar-link:hover {background-color:rgba(255,255,255,.17);}
         li.navbar-item.has-dropdown a.navbar-link {min-width: unset;}
       }
-
-      article.article__content >figure{ width: 100%; max-width: -webkit-fill-available;}
-
-
       /* ! ANIMATION */
       @-webkit-keyframes AnimateBG{ 0%{ background-position: 0% 50%;} 50%{ background-position: 100% 50%;} 100%{ background-position: 0% 50%;}}
       @keyframes AnimateBG{ 0%{ background-position: 0% 50%;} 50%{ background-position: 100% 50%;} 100%{ background-position: 0% 50%;}}
@@ -211,6 +206,7 @@
     </script>
     <!--! Calendly badge widget -->
     <link href="/assets/css/widget.css" rel="stylesheet">
+    
     <script src="/assets/js/widget.js" async></script>
     <!-- <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script> -->
   </head>
@@ -250,7 +246,7 @@
           <div class="container columns is-vcentered is-centered" id="hello">
             <figure itemscope="itemscope" itemtype="http://schema.org/ImageObject" class="image column is-narrow-desktop">
               <a id="article-img">
-                <img class="image is-rounded" src="/assets/img/mrakcw.jpg" itemprop="contentUrl" width="250" height="250" alt="MrakCw Dev" title="MrakCw">
+                <img class="image is-rounded" src="/assets/img/mrakcw.jpg" itemprop="contentUrl" width="300" height="300" alt="mrakcw photo" title="MrakCw">
               </a>
               <figcaption itemprop="description">MrakCw Dev</figcaption>
             </figure>
@@ -258,94 +254,11 @@
             <div class="column has-text-centered">
               <h1 class="title has-text-white pb-4">HI THERE 👋</h1>
               <p class="subtitle">I'M DENIS aka MRAKCW — FRONT END DEVELOPER.</p>
-              <button class="button is-success is-rounded is-outlined px-6 has-text-weight-bold" type="button" onclick="window['some-dialog-id'].show()" aria-controls="some-dialog-id">
-                Open content
-              </button>
               <a class="button is-success is-rounded is-outlined px-6 has-text-weight-bold" id="get-contact" href="#" title="Meet with me">
+            
               </a>
             </div>
           </div>
-          <dialog class="dialog" id="some-dialog-id">
-            <div itemscope="itemscope" itemtype="http://schema.org/Article" class="article__container container article" id="example">
-              <article itemprop="articleBody" class="article__content">
-                <!-- ? Cover Article Img & Heading #1 -->
-                <figure itemscope="itemscope" itemtype="http://schema.org/ImageObject">
-                  <!-- width="600" height="300" -->
-                  <img src="/assets/img/dev-cover.jpeg" alt="Dev Notes cover by MrakCw" itemprop="contentUrl">
-                  <figcaption itemprop="description"></figcaption>
-                </figure>
-                <blockquote class="is-hidden">
-                  <p class="blog_name subtitle" itemprop="autor"><a href="/iv/iv-template.html"> Dev Notes 📝 </a></p>
-                </blockquote>
-                <hr>
-                <h1 class="title has-text-centered" itemprop="headline">Hello everyone 👋 I am MrakCw 🧙</h1>
-                <p class="subtitle has-text-centered mb-0">Web developer & graphic designer</p>
-                <hr>
-                <!--? Nav Section -->
-                <section class="section py-0">
-                  <h2 class="title">Quick navigation</h2>
-                  <nav class="contents section py-3">
-                    <ul class="contents_list">
-                      <li class="contents_item m_level_1"><a href="#passion">My passion</a></li>
-                      <li class="contents_item m_level_1"><a href="#focused">My focus</a></li>
-                      <li class="contents_item m_level_1"><a href="#quality">Work principle</a></li>
-                      <li class="contents_item m_level_1"><a href="#about-me">About me</a></li>
-                      <li class="contents_item m_level_1"><a href="#table">Table</a></li>
-                      <li class="contents_item m_level_1"><a href="#slide">Slide</a></li>
-                    </ul>
-                  </nav>
-                  <hr>
-                </section>
-                <!-- ? Main Section -->
-                <section class="section">
-                  <a name="passion"></a>
-                  <h2 class="title">My passion is Web Development & Technical side of SEO 🐯</h2>
-                  <!-- <p class="subtitle">Also i am a graphic designer and a creative person 🎨</p> -->
-                  <p>Since 2007 I have begun my road & created my first website 🌐</p>
-                  <p>When we didn’t have flex or grid style property 😅</p>
-      
-                  <blockquote><p>Born to create something amazing in this world 🌅</p></blockquote>
-                  
-                  <hr>
-                  <a name="focused"></a>
-                  <h2 class="title">I am focused on improving my skills to pro level 💪</h2>
-                  <p>I revise source code more often than you may think and also i know the secret</p>
-                  <p>How to get impressive 100 / 100 points on page speed rank 📈 and more</p>
-                  
-                  <hr>
-                  <a name="quality"></a>
-                  <h2 class="title">Quality and web performance in my work it's my principle 👈</h2>
-                  <blockquote><p>Quality - it means doing it right even if no one is asking you  to do this and no one controls results 👍</p></blockquote>
-                  
-                  <hr>
-                  <a name="about-me"></a>
-                  <h2 class="title">In short about me</h2>
-                  <p>Some strange man based in Kyiv. 🥇</p>
-                  <p>I love what I do and do this excellent ✅</p>
-                 
-                </section>
-                <!-- ? Footer section -->
-                <section class="section">
-                  <a name="slide"></a>
-                  <h2 class="title">Slide-show</h2>
-                  <div class="container">
-                    <figure>
-                      <img class="card-img" src="/assets/img/mrakcw.jpg" alt="Фітодизайн інтер'єру">
-                      <figcaption>Озеленення дахів і терас #1</figcaption>
-                    </figure>
-                    <figure>
-                      <img class="card-img" src="/assets/img/mrakcw.jpg" alt="Фітодизайн інтер'єру">
-                      <figcaption>Озеленення дахів і терас #2</figcaption>
-                    </figure>
-                  </div>
-                </section>
-              </article>
-      
-            </div>
-            <button class="dialog__button button-orange" type="button" onclick="window['some-dialog-id'].close()">
-              Окей 👌
-            </button>
-          </dialog>
         </div>
         <!-- ! hero-foot -->
         <div class="hero-foot">
