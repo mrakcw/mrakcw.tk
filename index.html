@@ -40,7 +40,7 @@
     <!-- Options -->
     <meta name="application-name" content="MrakCw Dev Sandbox 🚀">
     <meta name="copyright" content="&copy; MrakCw | 2023">
-    <meta name="theme-color" content="#FB3"/>
+    <meta name="theme-color" content="#FB3">
     <link rel="icon" href="/assets/favicon/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="/assets/favicon/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png" sizes="180x180">
@@ -187,13 +187,19 @@
 
 
       article.article__content >figure{ width: 100%; max-width: -webkit-fill-available;}
-      dialog * {color: #000!important;}
+      dialog *:not(hr) {color: #000!important;}
+      dialog::before{background-color: rgba(0,0,0,.5);content:"";}
+
       .button-absolute{ display: grid; position: fixed; top: 4.25rem; right: .5rem; z-index: 10; font-size: 1.2rem;line-height: 1.5;}
       dialog article figure{ max-height: 224px; overflow: hidden;}
       article > hr:first-of-type{display: none;}
       article h1 {margin-top: 1.5rem;}
       a{color:#fff;}
-      a:is(:hover,:focus,:focus-visible){color:#fb3;}
+      a:is(:hover,:focus){color:#fb3;}
+      a:focus-visible{outline:unset;}
+      .d-none{display:none;}
+      .w-100{width:100%;}
+      :target{scroll-margin-block-start: 5rem;}
       /* .hero-foot{ height: -webkit-fill-available; position: absolute; bottom: -13rem; left: 0; right: 0;} */
 
       /* ! ANIMATION */
@@ -249,7 +255,7 @@
   </head>
   <body>
       <!-- 1st screen -->
-      <section class="hero iv-template is-fullheight">
+      <div class="hero iv-template is-fullheight">
         <!-- ! hero-head -->
         <div class="hero-head is-fixed-top has-background-black" role="navigation" aria-label="main navigation">
           <nav class="navbar border">
@@ -266,6 +272,7 @@
                       <a class="navbar-link">More</a>
                       <div class="navbar-dropdown">
                         <!-- <a class="navbar-link is-arrowless">About</a> -->
+                        <a class="navbar-link is-arrowless" >Notes</a>
                         <a class="navbar-link is-arrowless" href="/projects/">Projects</a>
                         <a class="navbar-link is-arrowless" href="/contacts/">Contacts</a>
                         <hr class="navbar-divider">
@@ -309,22 +316,36 @@
                 </blockquote>
                 <hr>
                 <h1 class="title has-text-centered" itemprop="headline">Hello everyone 👋 I am MrakCw 🧙</h1>
-                <p class="subtitle has-text-centered mb-0">Web developer & graphic designer</p>
+                <h2 class="subtitle has-text-centered mb-0">Web developer & graphic designer</h2>
                 <hr>
                 <!--? Nav Section -->
-                <section class="section py-0">
-                  <h2 class="title">Page navigation</h2>
-                  <nav class="contents box has-background-link-dark section py-3">
-                    <ul class="contents_list">
-                      <li class="contents_item m_level_1"><a class="has-text-white" href="#passion">My passion</a></li>
-                      <li class="contents_item m_level_1"><a class="has-text-white" href="#focused">My focus</a></li>
-                      <li class="contents_item m_level_1"><a class="has-text-white" href="#quality">Work principle</a></li>
-                      <li class="contents_item m_level_1"><a class="has-text-white" href="#about-me">About me</a></li>
-                      <li class="contents_item m_level_1"><a class="has-text-white" href="#table">Table</a></li>
-                    </ul>
-                  </nav>
-                  <hr class="my-0">
+                <section class="section columns py-0 mx-auto is-flex is-justify-content-space-evenly is-gapless">
+                  <div class="box has-background-black column is-5">
+                    <h2 class="title has-text-white has-text-centered mb-0 mt-3">Site navigation</h2>
+                    <hr class="my-2 has-background-light w-100">
+                    <nav class="contents pt-0 pb-3 px-5 column is-12">
+                      <ul class="contents_list mx-2">
+                        <li class="contents_item"><a class="has-text-white" href="/cv/">CV</a></li>
+                        <li class="contents_item"><a class="has-text-white disabled" >Notes</a></li>
+                        <li class="contents_item"><a class="has-text-white disabled" href="/projects/">Projects</a></li>
+                        <li class="contents_item"><a class="has-text-white disabled" href="/contacts/">Contacts</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <div class="box has-background-black column is-5">
+                    <h2 class="title has-text-white has-text-centered mb-0 mt-3">Table of context</h2>
+                    <hr class="my-2 has-background-light w-100">
+                    <nav class="contents pt-0 pb-3 px-5 column is-12">
+                      <ul class="contents_list mx-2">
+                        <li class="contents_item"><a class="has-text-white" href="#passion">My passion</a></li>
+                        <li class="contents_item"><a class="has-text-white" href="#focused">My focus</a></li>
+                        <li class="contents_item"><a class="has-text-white" href="#quality">Work principle</a></li>
+                        <li class="contents_item"><a class="has-text-white" href="#about-me">About me</a></li>
+                      </ul>
+                    </nav>
+                  </div>
                 </section>
+                  <hr class="mt-0">
                 <!-- ? Main Section -->
                 <section class="section py-0">
                   <a name="passion"></a>
@@ -355,17 +376,17 @@
                   <hr>
                 </section>
                 <!-- ? Footer section -->
-                <section class="section py-0">
+                <!-- <section class="section py-0">
                   <h2 class="title">Web navigation</h2>
-                  <nav class="contents box has-background-link-dark section py-3">
+                  <nav class="contents box has-background-black py-3 column is-4 px-5">
                     <ul class="contents_list">
-                      <li class="contents_item m_level_1"><a class="has-text-white" href="/cv/">CV</a></li>
-                      <li class="contents_item m_level_1"><a class="has-text-white disabled" href="/projects/">Projects</a></li>
-                      <li class="contents_item m_level_1"><a class="has-text-white disabled" href="/contacts/">Contacts</a></li>
+                      <li class="contents_item"><a class="has-text-white" href="/cv/">CV</a></li>
+                      <li class="contents_item"><a class="has-text-white disabled" href="/projects/">Projects</a></li>
+                      <li class="contents_item"><a class="has-text-white disabled" href="/contacts/">Contacts</a></li>
                     </ul>
                   </nav>
                 </section>
-              </article>
+              </article> -->
       
             </div>
             <button class="dialog__button button-absolute" type="button" onclick="window['some-dialog-id'].close()">❌</button>
@@ -380,7 +401,7 @@
 					<p><a href="/" title="Go Home" class="disabled active">🏠 &nbsp;GO HOME</a> | <a href="/privacy-policy/">Privacy Policy</a></p>
 					<p> © 2021-2023 GitHub, Inc.</p>
 				</div>
-      </section>
+      </div>
       
       <!--! Calendly badge widget -->
       <script src="/assets/js/widget.js" async></script>
