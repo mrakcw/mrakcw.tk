@@ -131,6 +131,9 @@
         figure a[name="article-img"] img {max-width: 45vw;}
       }
       @media (max-width: 768px) {
+        #nav{flex-direction: column; gap: 1rem;}
+        #nav div.box {min-width: 100%}
+        #nav div.box nav {min-width: 100%}
         .hero-body #hello {display: flex;flex-direction: column;justify-content: space-around;height: -webkit-fill-available;min-height: 100%;gap:2rem;}
       }
       @media (max-width: 1023px){
@@ -297,13 +300,13 @@
             <div class="column has-text-centered">
               <p class="title has-text-white pb-4 is-2">HI THERE 👋</p>
               <p class="subtitle is-4"> WEB DEV PROJECT 📘<br>Instant View 🌐</p>
-              <!-- <button class="button is-success is-rounded is-outlined px-6 has-text-weight-bold" type="button" onclick="window['some-dialog-id'].show()" aria-controls="some-dialog-id">Open content </button> -->
+              <button class="button is-success is-rounded is-outlined px-6 has-text-weight-bold" type="button" onclick="window['some-dialog-id'].show()" aria-controls="some-dialog-id">Open content </button>
               <a class="button is-success is-rounded is-outlined px-6 has-text-weight-bold" id="get-contact" href="#" title="Meet with me"></a>
             </div>
           </div>
           <!-- ? START IV CONTENT -->
           <dialog class="dialog text-dark" id="some-dialog-id">
-            <div itemscope="itemscope" itemtype="http://schema.org/Article" class="article__container container article" id="example">
+            <div itemscope="itemscope" itemtype="http://schema.org/Article" class="article__container container article" id="article">
               <article itemprop="articleBody" class="article__content">
                 <!-- ? Cover Article Img & Heading #1 -->
                 <figure itemscope="itemscope" itemtype="http://schema.org/ImageObject" class="d-none">
@@ -319,7 +322,7 @@
                 <h2 class="subtitle has-text-centered mb-0">Web developer & graphic designer</h2>
                 <hr>
                 <!--? Nav Section -->
-                <section class="section columns py-0 mx-auto is-flex is-justify-content-space-evenly is-gapless">
+                <section class="section py-0 mx-auto is-flex is-justify-content-space-evenly is-gapless columns is-mobile" id="nav">
                   <div class="box has-background-black column is-5">
                     <h2 class="title has-text-white has-text-centered mb-0 mt-3">Site navigation</h2>
                     <hr class="my-2 has-background-light w-100">
