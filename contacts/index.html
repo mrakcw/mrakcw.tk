@@ -76,73 +76,38 @@
     </script>
   </head>
   <body>
-      <!-- 1st screen -->
-      <section class="hero iv-template is-fullheight">
-        <!-- ! hero-head -->
-        <div class="hero-head is-fixed-top has-background-black" role="navigation" aria-label="main navigation">
-          <nav class="navbar border">
-            <div class="container">
-              <div class="navbar-brand navbar-start">
-                <a class="navbar-item" href="/" title="Home link"><img src="/assets/img/logo/mr-navbar.svg" alt="logo" title="Go home" class="navbar-logo"></a>
-              </div>
-              <div class="navbar-end touch">
-                <label for="menuToggle" class="navbar-item touch"><svg viewBox="0 0 448 512" width="15" fill="#fff">  <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" /></svg></label>
-                <input id="menuToggle" type="checkbox">
-                <ul class="navbar-menu navbar-burger has-background-white-bis has-text-centered">
-                  <li class="navbar-item">
-                    <button class="button is-outlined is-arrowless" type="button" onclick="window['some-dialog-id'].show()" aria-controls="some-dialog-id">Open content</button>
-                  </li>
-                  <!-- <li class="navbar-item"><div class="navbar-link is-arrowless">Documentation</div></li>
-                  <li class="navbar-item has-dropdown is-hoverable">
-                      <a class="navbar-link">More</a>
-                      <div class="navbar-dropdown">
-                        <a class="navbar-link is-arrowless">About</a>
-                        <a class="navbar-link is-arrowless">Jobs</a>
-                        <a class="navbar-link is-arrowless">Contact</a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-link is-arrowless">Hello world</a>
-                      </div>
-                  </li> -->
-                </ul>
-              </div>
-            </div>
-          </nav>
+    <!-- 1st screen -->
+    <section class="hero iv-template is-fullheight">
+      <!-- ! hero-body -->
+      <div class="hero-body">
+        <!-- ? START IV CONTENT -->
+        <div itemscope="itemscope" itemtype="http://schema.org/Article" class="article__container container article" id="example">
+          <article itemprop="articleBody" class="article__content">
+            <!-- ? Cover Article Img & Heading #1 -->
+            <figure itemscope="itemscope" itemtype="http://schema.org/ImageObject" style="display:grid;place-items:center;" itemprop="image">
+              <!-- width="600" height="300" -->
+              <img src="/assets/img/icon-logo.png" alt="Dev Logo by MrakCw" itemprop="contentUrl" class="image is-96x96">
+              <figcaption itemprop="description"><a href="/" title="Go to the main page">MrakCw Dev</a></figcaption>
+            </figure>
+            <blockquote class="is-hidden">
+              <p class="blog_name subtitle" itemprop="autor"><a href="/">WEB DEV PROJECT</a></p>
+            </blockquote>
+            <hr>
+            <h1 class="title has-text-centered" itemprop="headline">WEB DEV | MrakCw Contacts 🧙</h1>
+            <p class="subtitle has-text-centered mb-0">👑 WEB DEV PROJECT 🚀</p>
+          </article>
+  
         </div>
-        <!-- ! hero-body -->
-        <div class="hero-body">
-          <!-- ? START IV CONTENT -->
-          <dialog class="dialog text-dark" id="some-dialog-id">
-            <div itemscope="itemscope" itemtype="http://schema.org/Article" class="article__container container article" id="example">
-              <article itemprop="articleBody" class="article__content">
-                <!-- ? Cover Article Img & Heading #1 -->
-                <figure itemscope="itemscope" itemtype="http://schema.org/ImageObject">
-                  <!-- width="600" height="300" -->
-                  <img src="/assets/img/dev-cover.jpeg" alt="Dev Notes cover by MrakCw" itemprop="contentUrl">
-                  <figcaption itemprop="description"></figcaption>
-                </figure>
-                <blockquote class="is-hidden">
-                  <p class="blog_name subtitle" itemprop="autor"><a href="/">WEB DEV PROJECT</a></p>
-                </blockquote>
-                <hr>
-                <h1 class="title has-text-centered" itemprop="headline">MrakCw Web developer contacts 🧙</h1>
-                <p class="subtitle has-text-centered mb-0">👑 WEB DEV PROJECT 🚀</p>
-              </article>
-      
-            </div>
-            <button class="dialog__button button-absolute" type="button" onclick="window['some-dialog-id'].close()">❌</button>
-          </dialog>
-          <!-- ? END IV CONTENT -->
-        </div>
-        <!-- ! hero-foot -->
-        <div class="hero-foot">
-          <div class="area" ><ul class="circles"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></div>
-        </div>
-				<div class="container text-center copyright mt-6">
-					<p><a href="/" title="Go Home" class="disabled active">🏠 &nbsp;GO HOME</a> | <a href="/privacy-policy/">Privacy Policy</a></p>
-					<p> © 2021-2023 GitHub, Inc.</p>
-				</div>
-      </section>
-      
-
+        <!-- ? END IV CONTENT -->
+      </div>
+      <!-- ! hero-foot -->
+      <div class="hero-foot">
+        <div class="area" ><ul class="circles"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></div>
+      </div>
+      <div class="container text-center copyright mt-6">
+        <p><a href="/" title="Go Home" class="disabled active">🏠 &nbsp;GO HOME</a> | <a href="/privacy-policy/">Privacy Policy</a></p>
+        <p> © 2021-2023 GitHub, Inc.</p>
+      </div>
+    </section>
   </body>
 </html>
