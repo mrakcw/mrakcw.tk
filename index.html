@@ -245,7 +245,7 @@
         }  
       }
     </script>
-    <!-- <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script> -->
+    
   </head>
   <body>
       <!-- 1st screen -->
@@ -261,14 +261,11 @@
                 <label for="menuToggle" class="navbar-item touch"><svg viewBox="0 0 448 512" width="15" fill="#fff">  <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" /></svg></label>
                 <input id="menuToggle" type="checkbox">
                 <ul class="navbar-menu navbar-burger has-background-white-bis has-text-centered">
-                  <li class="navbar-item">
-                    <button class="button is-outlined navbar-link is-arrowless" type="button" onclick="window['some-dialog-id'].show()" aria-controls="some-dialog-id">Open content</button>
-                  </li>
-                  <li class="navbar-item"><div class="navbar-link is-arrowless">View CV</div></li>
+                  <li class="navbar-item"><div class="navbar-link is-arrowless" onclick="window['some-dialog-id'].show()" aria-controls="some-dialog-id">View content</div></li>
                   <li class="navbar-item has-dropdown is-hoverable">
                       <a class="navbar-link">More</a>
                       <div class="navbar-dropdown">
-                        <a class="navbar-link is-arrowless">About</a>
+                        <!-- <a class="navbar-link is-arrowless">About</a> -->
                         <a class="navbar-link is-arrowless" href="/projects/">Projects</a>
                         <a class="navbar-link is-arrowless" href="/contacts/">Contacts</a>
                         <hr class="navbar-divider">
@@ -381,7 +378,7 @@
         <div class="hero-foot">
           <div class="area" ><ul class="circles"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></div>
         </div>
-				<div class="container text-center copyright mt-6">
+				<div class="container text-center copyright mt-6 has-text-centered">
 					<p><a href="/" title="Go Home" class="disabled active">🏠 &nbsp;GO HOME</a> | <a href="/privacy-policy/">Privacy Policy</a></p>
 					<p> © 2021-2023 GitHub, Inc.</p>
 				</div>
