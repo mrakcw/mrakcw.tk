@@ -85,11 +85,11 @@
       .hero-head{position:fixed;width:100%;height:64px;z-index:9;}
       .hero-body{margin-top:65px;}
       .hero-foot .container{display:flex;justify-content:center;height:100%;min-height:-webkit-fill-available;position:relative}
-      .navbar-item:not(.navbar-dropdown a.navbar-item){height:64px;transition: var(--hover-t);}
+      .navbar-item:not(.navbar-dropdown a.navbar-item,.navbar-menu .navbar-item){height:64px;transition: var(--hover-t);}
       .navbar-item{padding:0 .75rem;}
       .navbar-item .navbar-dropdown{font-size:1rem;}
       .navbar-item .navbar-dropdown .navbar-divider{background-color:#fb3;}
-      .navbar-link.is-arrowless {height: 100%;}
+      /* .navbar-link.is-arrowless {height: 100%;} */
       .navbar-link:hover{color:#fb3}
       .hero-body figure {max-width: 310px;margin:0 auto;}
       .hero-body div.column {max-width: 890px;display:flex;flex-direction:column;align-items:center;gap:.5rem;}
@@ -99,6 +99,7 @@
       section.hero .hero-body{padding:1rem 1.5rem;}
       .copyright{height:60px;bottom: 2rem;flex:0 1 100%;}
       .text-center{text-align:center;}
+      svg.hb{transform:scale(1.5);}
       /* ! COMPONENTS */
       /* button option */
       #get-contact {border:solid 2px;min-width: 295px;max-width: 295px;width:295px;z-index:2;}
@@ -137,19 +138,19 @@
         .hero-body #hello {display: flex;flex-direction: column;justify-content: space-around;height: -webkit-fill-available;min-height: 100%;gap:2rem;}
       }
       @media (max-width: 1023px){
-        #menuToggle:not(#menuToggle:checked){ opacity:0; position: absolute;left: 0;}
-        #menuToggle:checked{ opacity:1; height:100vh; position:absolute; left:-56%; top:61px; width:100%; filter:opacity(.55) ; transition: 2s  ease ; -webkit-transition: 2s  ease ; -moz-transition: 2s  ease ; -ms-transition: 2s  ease ; -o-transition: 2s  ease ; -webkit-filter:opacity(.55) ; }
-        #menuToggle:checked::after{ content: '';position:fixed; left:20%; top:0; opacity:1; height:100vh; width:100%; background-color: #000; }
-        #menuToggle:not(#menuToggle:checked) + .navbar-burger{pointer-events: none; top:61px;right: -100vw;opacity:.2;}
-        #menuToggle:checked + .navbar-burger{ top:61px;right:-7px;min-height: 96vh;}
-        .navbar-burger li{ opacity: 0; transition:opacity 0.35s 1s ease; -webkit-transition:opacity 0.35s 1s ease; -moz-transition:opacity 0.35s 1s ease; -ms-transition:opacity 0.35s 1s ease; -o-transition:opacity 0.35s 1s ease; }
-        #menuToggle:checked + .navbar-burger li{ width: 100%; margin: 0 auto; opacity: 1; transition:opacity 0.35s ease; -webkit-transition:opacity 0.35s ease; -moz-transition:opacity 0.35s ease; -ms-transition:opacity 0.35s ease; -o-transition:opacity 0.35s ease; display: grid;}
+        #menuToggle:not(#menuToggle:checked){opacity:0;position:absolute;left:0;height:90vh;right:-25%;top:62px;width:100%;visibility:hidden;}
+        #menuToggle:checked{pointer-events:none;opacity:1;height:90vh;position:absolute;right:-25%;top:62px;width:100%;filter:opacity(.65);transition:1.2s ease .15s; -webkit-transition:1.2s ease .15s; -moz-transition:1.2s ease .15s; -ms-transition:1.2s ease .15s; -o-transition:1.2s ease .15s; -webkit-filter:opacity(.65);}
+        #menuToggle:checked::after{content:'';position:fixed;left:20%;right:0;top:0;bottom:0;opacity:1;height:90vh;width:100%;background-color:#000;display:flex;}
+        #menuToggle:not(#menuToggle:checked) + .navbar-burger{pointer-events:none;top:62px;left:-100%;opacity:.3;transition:all .45s ease;-webkit-transition:all .45s ease;-moz-transition:all .45s ease;-ms-transition:all .45s ease;-o-transition:all .45s ease;}
+        #menuToggle:checked + .navbar-burger{top:62px;left:0;min-height:96vh;}
+        /* .navbar-burger li{opacity:0;transition:opacity 0.35s 1s ease;-webkit-transition:opacity 0.35s 1s ease;-moz-transition:opacity 0.35s 1s ease; -ms-transition:opacity 0.35s 1s ease;-o-transition:opacity 0.35s 1s ease;} */
+        /* #menuToggle:checked + .navbar-burger li{width:100%;margin: 0 auto;opacity:1;transition:opacity 0.35s ease;-webkit-transition:opacity 0.35s ease;-moz-transition:opacity 0.35s ease;-ms-transition:opacity 0.35s ease;-o-transition:opacity 0.35s ease;display:grid;} */
         .navbar>.container{display:flex;align-items:center;justify-content:space-between;max-height:58px;}
         .navbar-end.touch{display:inline-flex;}
-        .navbar-end.touch svg{width: 2.2em;height: 2.2em;}
+        .navbar-end.touch svg{width: 2.2em;height:36px;}
         .navbar-end.touch label{ display: grid; place-items: center}
-        .navbar-burger{ position:absolute; width:-webkit-fill-available; min-width:fit-content; height:fit-content; min-height:50px; background:#2a2a2a50; margin:auto; padding:0 1rem; display:flex; flex-direction:column; justify-content:center;z-index: 9; }
-        ul.navbar-burger{ width: 80%; display: flex; padding:.5rem; transition: all .35s ease-in; -webkit-transition: all .35s ease-in; -moz-transition: all .35s ease-in; -ms-transition: all .35s ease-in; -o-transition: all .35s ease-in; }
+        .navbar-burger{ position:absolute; width:-webkit-fill-available; min-width:fit-content; height:fit-content; min-height:90vh; background:#2a2a2a50; margin:auto; padding:0 1rem; display:flex; flex-direction:column; justify-content:center;z-index: 9; }
+        ul.navbar-burger{width:50%;display:flex;padding:1.5rem;transition:all .35s ease-in;-webkit-transition:all .35s ease-in;-moz-transition:all .35s ease-in;-ms-transition:all .35s ease-in;-o-transition:all .35s ease-in;}
         .navbar-link{color:#333;}
         .navbar-link:hover{color:#fb3;}
       }
@@ -267,12 +268,14 @@
                 <a class="navbar-item" href="/" title="Home link"><img src="/assets/img/logo/mr-navbar.svg" alt="logo" title="Go home" class="navbar-logo"></a>
               </div>
               <div class="navbar-end touch">
-                <label for="menuToggle" class="navbar-item touch"><svg viewBox="0 0 448 512" width="15" fill="#fff">  <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" /></svg></label>
+                <label for="menuToggle" class="navbar-item touch">
+                  <svg class="hb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" stroke="#eee" stroke-width=".8" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer"><path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7"><animate dur="0.2s" attributeName="d" values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7" fill="freeze" begin="start.begin" /><animate dur="0.2s" attributeName="d" values="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7;M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7" fill="freeze" begin="reverse.begin" /></path><rect width="10" height="10" stroke="none"><animate dur="2s" id="reverse" attributeName="width" begin="click" /></rect><rect width="10" height="10" stroke="none"><animate dur="0.001s" id="start" attributeName="width" values="10;0" fill="freeze" begin="click" /><animate dur="0.001s" attributeName="width" values="0;10" fill="freeze" begin="reverse.begin" /></rect></svg>
+                </label>
                 <input id="menuToggle" type="checkbox">
                 <ul class="navbar-menu navbar-burger has-background-white-bis has-text-centered">
                   <li class="navbar-item"><div class="navbar-link is-arrowless" onclick="window['some-dialog-id'].show()" aria-controls="some-dialog-id">View content</div></li>
                   <li class="navbar-item has-dropdown is-hoverable">
-                      <a class="navbar-link">More</a>
+                      <a class="navbar-link is-arrowless">More</a>
                       <div class="navbar-dropdown">
                         <!-- <a class="navbar-link is-arrowless">About</a> -->
                         <a class="navbar-link is-arrowless" >Notes</a>
