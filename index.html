@@ -50,10 +50,13 @@
     <!-- Files -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jura:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma-helpers/0.4.2/css/bulma-helpers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma-helpers/0.4.3/css/bulma-helpers.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulmaswatch/0.8.1/cyborg/bulmaswatch.min.css">
     <style>
       :root{
@@ -138,11 +141,12 @@
         .hero-body #hello {display: flex;flex-direction: column;justify-content: space-around;height: -webkit-fill-available;min-height: 100%;gap:2rem;}
       }
       @media (max-width: 1023px){
-        #menuToggle:not(#menuToggle:checked){opacity:0;position:absolute;left:0;height:90vh;right:-25%;top:62px;width:100%;visibility:hidden;}
-        #menuToggle:checked{pointer-events:none;opacity:1;height:90vh;position:absolute;right:-25%;top:62px;width:100%;filter:opacity(.65);transition:1.2s ease .15s; -webkit-transition:1.2s ease .15s; -moz-transition:1.2s ease .15s; -ms-transition:1.2s ease .15s; -o-transition:1.2s ease .15s; -webkit-filter:opacity(.65);}
+        #menuToggle:not(#menuToggle:checked){opacity:0;position:absolute;left:0;height:90vh;right:-25%;top:61px;width:100%;visibility:hidden;}
+        #menuToggle:checked{pointer-events:none;opacity:1;height:90vh;position:absolute;right:-25%;top:61px;width:100%;filter:opacity(.65);transition:1.2s ease .15s; -webkit-transition:1.2s ease .15s; -moz-transition:1.2s ease .15s; -ms-transition:1.2s ease .15s; -o-transition:1.2s ease .15s; -webkit-filter:opacity(.65);}
         #menuToggle:checked::after{content:'';position:fixed;left:20%;right:0;top:0;bottom:0;opacity:1;height:90vh;width:100%;background-color:#000;display:flex;}
-        #menuToggle:not(#menuToggle:checked) + .navbar-burger{pointer-events:none;top:62px;left:-100%;opacity:.3;transition:all .45s ease;-webkit-transition:all .45s ease;-moz-transition:all .45s ease;-ms-transition:all .45s ease;-o-transition:all .45s ease;}
-        #menuToggle:checked + .navbar-burger{top:62px;left:0;min-height:96vh;}
+        #menuToggle:not(#menuToggle:checked) + .navbar-burger{min-height:96vh;pointer-events:none;top:61px;left:-100%;opacity:.3;transition:all .45s ease;-webkit-transition:all .45s ease;-moz-transition:all .45s ease;-ms-transition:all .45s ease;-o-transition:all .45s ease;}
+        #menuToggle:checked + .navbar-burger{top:61px;left:0;min-height:96vh;}
+        /* .hero div:has(dialog[open]) ~ #menuToggle:not(#menuToggle:checked) + .navbar-burger {left:50%!important;} */
         /* .navbar-burger li{opacity:0;transition:opacity 0.35s 1s ease;-webkit-transition:opacity 0.35s 1s ease;-moz-transition:opacity 0.35s 1s ease; -ms-transition:opacity 0.35s 1s ease;-o-transition:opacity 0.35s 1s ease;} */
         /* #menuToggle:checked + .navbar-burger li{width:100%;margin: 0 auto;opacity:1;transition:opacity 0.35s ease;-webkit-transition:opacity 0.35s ease;-moz-transition:opacity 0.35s ease;-ms-transition:opacity 0.35s ease;-o-transition:opacity 0.35s ease;display:grid;} */
         .navbar>.container{display:flex;align-items:center;justify-content:space-between;max-height:58px;}
@@ -212,7 +216,7 @@
       @keyframes dynamic-bg{0%{ transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 0}100%{ transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%}}
       @keyframes calendly-bouncedelay{0%,80%,100%{transform:scale(0)}40%{transform:scale(1)}}
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script rel="preload" as="script" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="application/ld+json">
       {"@context": "https://www.schema.org",
       "@type": "BreadcrumbList",
@@ -255,7 +259,13 @@
         }  
       }
     </script>
-    
+
+    <style>
+      svg#canvas{ position: fixed; top: 0; bottom: 0; height: -webkit-fill-available; left: 0; right: 0; width: -webkit-fill-available;}
+      svg#canvas path{
+        position: absolute; display: block; list-style: none; width: 20px; height: 20px; background: rgba(255, 255, 255, 0.2); animation: dynamic-bg 35s linear infinite; bottom: -150px;
+      }
+    </style>
   </head>
   <body>
       <!-- 1st screen -->
@@ -297,12 +307,12 @@
               <a id="article-img" onclick="window['some-dialog-id'].show()" aria-controls="some-dialog-id">
                 <img class="image is-rounded" src="/assets/img/mrakcw.jpg" itemprop="contentUrl" width="200" height="200" alt="MrakCw Dev" title="MrakCw">
               </a>
-              <figcaption itemprop="description">MrakCw Dev</figcaption>
+              <figcaption itemprop="description" class="subtitle is-4">MrakCw Dev</figcaption>
             </figure>
             <!-- COL £2 -->
             <div class="column has-text-centered">
               <p class="title has-text-white pb-4 is-2">HI THERE 👋</p>
-              <p class="subtitle is-4"> WEB DEV PROJECT 📘<br>Instant View 🌐</p>
+              <p class="subtitle is--4"> WEB DEV PROJECT 📘<br>Instant View 🌐</p>
               <button class="button is-success is-rounded is-outlined px-6 has-text-weight-bold" type="button" onclick="window['some-dialog-id'].show()" aria-controls="some-dialog-id">Open content </button>
               <a class="button is-success is-rounded is-outlined px-6 has-text-weight-bold" id="get-contact" href="#" title="Meet with me"></a>
             </div>
@@ -327,7 +337,7 @@
                 <!--? Nav Section -->
                 <section class="section py-0 mx-auto is-flex is-justify-content-space-evenly is-gapless columns is-mobile" id="nav">
                   <div class="box has-background-black column is-5">
-                    <h2 class="title has-text-white has-text-centered mb-0 mt-3">Site navigation</h2>
+                    <h2 class="title has-text-white has-text-centered mb-0 mt-3 is-5">Site navigation</h2>
                     <hr class="my-2 has-background-light w-100">
                     <nav class="contents pt-0 pb-3 px-5 column is-12">
                       <ul class="contents_list mx-2">
@@ -339,7 +349,7 @@
                     </nav>
                   </div>
                   <div class="box has-background-black column is-5">
-                    <h2 class="title has-text-white has-text-centered mb-0 mt-3">Table of context</h2>
+                    <h2 class="title has-text-white has-text-centered mb-0 mt-3 is-5">Table of context</h2>
                     <hr class="my-2 has-background-light w-100">
                     <nav class="contents pt-0 pb-3 px-5 column is-12">
                       <ul class="contents_list mx-2">
@@ -351,15 +361,11 @@
                     </nav>
                   </div>
                 </section>
-                <details>
-                  <summary><span>Open text</span></summary>
-                  <p>Some hide text</p>
-                </details>
                 <!-- ? Main Section -->
                 <section class="section py-0">
                   <hr class="mt-0">
                   <a name="passion"></a>
-                  <h2 class="title">My passion is Web Development & Technical side of SEO 🐯</h2>
+                  <h2 class="title is-4">My passion is Web Development & Technical side of SEO 🐯</h2>
                   <!-- <p class="subtitle">Also i am a graphic designer and a creative person 🎨</p> -->
                   <p>Since 2007 I have begun my road & created my first website 🌐</p>
                   <p>When we didn’t have flex or grid style property 😅</p>
@@ -368,18 +374,18 @@
                   
                   <hr>
                   <a name="focused"></a>
-                  <h2 class="title">I am focused on improving my skills to pro level 💪</h2>
+                  <h2 class="title is-4">I am focused on improving my skills to pro level 💪</h2>
                   <p>I revise source code more often than you may think and also i know the secret</p>
                   <p>How to get impressive 100 / 100 points on page speed rank 📈 and more</p>
                   
                   <hr>
                   <a name="quality"></a>
-                  <h2 class="title">Quality and web performance in my work it's my principle 👈</h2>
+                  <h2 class="title is-4">Quality and web performance in my work it's my principle 👈</h2>
                   <blockquote><p>Quality - it means doing it right even if no one is asking you  to do this and no one controls results 👍</p></blockquote>
                   
                   <hr>
                   <a name="about-me"></a>
-                  <h2 class="title">In short about me</h2>
+                  <h2 class="title is-4">In short about me</h2>
                   <p>Some strange man based in Kyiv. 🥇</p>
                   <p>I love what I do and do this excellent ✅</p>
                  
@@ -412,6 +418,25 @@
 				</div>
       </div>
       
+<!-- <svg version="1.1" id="canvas" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 400 400" xml:space="preserve">
+  <style type="text/css">
+    path{opacity:0.2;fill:#FFFFFF;}
+    .st1{ left: 25%; width: 80px; height: 80px; animation-delay: 0s}
+    .st2{ left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s}
+    .st3{ left: 70%; width: 20px; height: 20px; animation-delay: 4s}
+    .st4{ left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s}
+    .st5{ left: 65%; width: 20px; height: 20px; animation-delay: 0s}
+    .st6{ left: 75%; width: 110px; height: 110px; animation-delay: 3s}
+    .st7{ left: 35%; width: 150px; height: 150px; animation-delay: 7s}
+    .st8{ left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s}
+    .st9{ left: 20%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 35s}
+    .st0{ left: 85%; width: 150px; height: 150px; animation-delay: 0s; animation-duration: 11s}
+  </style>
+  <path class="st1" d="M80.7,500H7.3c-1.8,0-3.3-1.5-3.3-3.3v-73.4c0-1.8,1.5-3.3,3.3-3.3h73.4c1.8,0,3.3,1.5,3.3,3.3v73.4C84,498.5,82.5,500,80.7,500z"/>
+  <path class="st2" d="M112.1,474.8H98.7c-1.8,0-3.3-1.5-3.3-3.3v-13.4c0-1.8,1.5-3.3,3.3-3.3h13.4c1.8,0,3.3,1.5,3.3,3.3v13.4C115.4,473.3,114,474.8,112.1,474.8z"/>
+</svg> -->
+
+
       <!--! Calendly badge widget -->
       <script src="/assets/js/widget.js" async></script>
       <!--? Calendly badge widget -->

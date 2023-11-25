@@ -1,0 +1,64 @@
+<svg class="circles" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<circle id="circle1" cx="25%" cy="50%" r="40" fill="rgba(255, 255, 255, 0.2)">
+<animateMotion dur="35s" repeatCount="indefinite">
+<mpath xlink:href="#circle1-path"></mpath>
+</animateMotion>
+</circle>
+<circle id="circle2" cx="10%" cy="50%" r="10" fill="rgba(255, 255, 255, 0.2)">
+<animateMotion dur="12s" repeatCount="indefinite" begin="2s">
+<mpath xlink:href="#circle2-path"></mpath>
+</animateMotion>
+</circle>
+<circle id="circle3" cx="70%" cy="50%" r="10" fill="rgba(255, 255, 255, 0.2)">
+<animateMotion dur="35s" repeatCount="indefinite" begin="4s">
+<mpath xlink:href="#circle3-path"></mpath>
+</animateMotion>
+</circle>
+<circle id="circle4" cx="40%" cy="50%" r="30" fill="rgba(255, 255, 255, 0.2)">
+<animateMotion dur="18s" repeatCount="indefinite">
+<mpath xlink:href="#circle4-path"></mpath>
+</animateMotion>
+</circle>
+<circle id="circle5" cx="65%" cy="50%" r="10" fill="rgba(255, 255, 255, 0.2)">
+<animateMotion dur="35s" repeatCount="indefinite">
+<mpath xlink:href="#circle5-path"></mpath>
+</animateMotion>
+</circle>
+<circle id="circle6" cx="75%" cy="50%" r="55" fill="rgba(255, 255, 255, 0.2)">
+<animateMotion dur="35s" repeatCount="indefinite" begin="3s">
+<mpath xlink:href="#circle6-path"></mpath>
+</animateMotion>
+</circle>
+<circle id="circle7" cx="35%" cy="50%" r="75" fill="rgba(255, 255, 255, 0.2)">
+<animateMotion dur="35s" repeatCount="indefinite" begin="7s">
+<mpath xlink:href="#circle7-path"></mpath>
+</animateMotion>
+</circle>
+<circle id="circle8" cx="50%" cy="50%" r="12.5" fill="rgba(255, 255, 255, 0.2)">
+<animateMotion dur="45s" repeatCount="indefinite" begin="15s">
+<mpath xlink:href="#circle8-path"></mpath>
+</animateMotion>
+</circle>
+<circle id="circle9" cx="20%" cy="50%" r="7.5" fill="rgba(255, 255, 255, 0.2)">
+<animateMotion dur="35s" repeatCount="indefinite" begin="2s">
+<mpath xlink:href="#circle9-path"></mpath>
+</animateMotion>
+</circle>
+<circle id="circle10" cx="85%" cy="50%" r="75" fill="rgba(255, 255, 255, 0.2)">
+<animateMotion dur="11s" repeatCount="indefinite">
+<mpath xlink:href="#circle10-path"></mpath>
+</animateMotion>
+</circle>
+<defs>
+<path id="circle1-path" d="M25% 100c0-200 150-250 150-350"></path>
+<path id="circle2-path" d="M10% 100c0-200 0-250 0-350"></path>
+<path id="circle3-path" d="M70% 100c0-200 0-250 0-350"></path>
+<path id="circle4-path" d="M40% 100c0-200 90-250 90-350"></path>
+<path id="circle5-path" d="M65% 100c0-200 0-250 0-350"></path>
+<path id="circle6-path" d="M75% 100c0-200 75-250 75-350"></path>
+<path id="circle7-path" d="M35% 100c0-200 125-250 125-350"></path>
+<path id="circle8-path" d="M50% 100c0-200 12.5-250 12.5-350"></path>
+<path id="circle9-path" d="M20% 100c0-200 0-250 0-350"></path>
+<path id="circle10-path" d="M85% 100c0-200 150-250 150-350"></path>
+</defs>
+</svg>
