@@ -69,9 +69,9 @@
       label[for="menuToggle"]{ display: grid; place-items: center; max-height: 60px; height: 60px; width: 60px; overflow-y: hidden;}
       label[for="menuToggle"] svg{ width: 100%; height: 100%; max-width: 2em; max-height: fit-content; display: flex; justify-content: center; align-items: center;}
       .navbar-item img{ width:100%;height:100%;pointer-events:none;}
-      .navbar-brand a img {max-height:44px;/*filter: drop-shadow(.75pt 0pt 0px #fff) drop-shadow(-.5pt -.5pt 0px #fff);*/transition: var(--hover-t);}
+      /* .navbar-brand a .navbar-logo {max-height:44px;filter: drop-shadow(.75pt 0pt 0px #fff) drop-shadow(-.5pt -.5pt 0px #fff);transition: var(--hover-t);} */
       .navbar-brand a:hover {filter: invert(1) drop-shadow(1px 1px 0px #fb3) drop-shadow(-.25px -.26px .15px #fb3);transition: var(--hover-t);}
-      .navbar-brand a:hover img {transition: var(--hover-t);}
+			/* .navbar-brand a:hover img {filter: drop-shadow(0px 0px 0px #fff) invert(1);transition: var(--hover-t);} */
       .iv-template{ background: rgb(2, 0, 36); background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 5%, #3431ec 51%, rgba(42, 10, 44, 1) 95%); background-size: 350% 350%; -webkit-animation: AnimateBG 20s ease infinite; animation: AnimateBG 20s ease infinite;overflow: auto;}
       nav.navbar.border{ border-bottom: 3px #fb3 solid; border-top: 3px #fb3 solid;height:64px;}
       /* .title, .subtitle{ text-shadow: -2px -2px 0 #000, 2px 2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; filter: drop-shadow(2px 2px 2px #000);} */
@@ -212,50 +212,9 @@
       @keyframes AnimateBG{ 0%{ background-position: 0% 50%;} 50%{ background-position: 100% 50%;} 100%{ background-position: 0% 50%;}}
       @keyframes dynamic-bg{0%{ transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 0}100%{ transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%}}
       @keyframes calendly-bouncedelay{0%,80%,100%{transform:scale(0)}40%{transform:scale(1)}}
+
+			.hero-body svg{ position: absolute; top: 0; left: 0; bottom: 0; right: 0;}
     </style>
-    <script rel="preload" as="script" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="application/ld+json">
-      {"@context": "https://www.schema.org",
-      "@type": "BreadcrumbList",
-      "name": "MrakCw.Tk crumbs",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@type": "Thing",
-          "@id": "https://mrakcw.tk/",
-          "name": "MrakCw.tk 🌍"}},
-        {"@type": "ListItem",
-        "position": 2,
-          "item": {
-          "@type": "Thing",
-          "@id": "https://mrakcw.tk#hello",
-          "name": "HI THERE 👋"}}]}
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org/",
-        "@type": "Person",
-        "name": "MrakCw Dev",
-        "url": "https://mrakcw.tk/",
-        "image": "https://mrakcw.tk/assets/img/mrakcw.jpg",
-        "sameAs": [
-          "https://www.facebook.com/MrakCw/",
-          "https://twitter.com/mrakcw",
-          "https://www.instagram.com/4uk_4upik/",
-          "https://www.youtube.com/user/mrakcw",
-          "https://www.linkedin.com/in/mrakcw/",
-          "https://www.pinterest.com/mrakcw/",
-          "https://github.com/mrakcw",
-          "https://mrakcw.cc.ua"
-        ],
-        "jobTitle": "Front End Developer",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Open to new projects"
-        }  
-      }
-    </script>
 
     <!-- <style>
       svg#canvas{ position: fixed; top: 0; bottom: 0; height: -webkit-fill-available; left: 0; right: 0; width: -webkit-fill-available;}
@@ -299,157 +258,68 @@
         </div>
         <!-- ! hero-body -->
         <div class="hero-body">
-          <div class="container columns is-vcentered is-centered" id="hello">
-            <figure itemscope="itemscope" itemtype="http://schema.org/ImageObject" class="image column is-narrow-desktop">
-              <a id="article-img" onclick="window['some-dialog-id'].show()" aria-controls="some-dialog-id">
-                <img class="image is-rounded" src="/assets/img/mrakcw.jpg" itemprop="contentUrl" width="200" height="200" alt="MrakCw Dev" title="MrakCw">
-              </a>
-              <figcaption itemprop="description" class="subtitle is-4">MrakCw Dev</figcaption>
-            </figure>
-            <!-- COL £2 -->
-            <div class="column has-text-centered">
-              <p class="title has-text-white pb-4 is-2">HI THERE 👋</p>
-              <p class="subtitle is--4"> WEB DEV PROJECT 📘<br>Instant View 🌐</p>
-              <button class="button is-success is-rounded is-outlined px-6 has-text-weight-bold" type="button" onclick="window['some-dialog-id'].show()" aria-controls="some-dialog-id">Open content </button>
-              <a class="button is-success is-rounded is-outlined px-6 has-text-weight-bold" id="get-contact" href="#" title="Meet with me"></a>
-            </div>
-          </div>
-          <!-- ? START IV CONTENT -->
-          <dialog class="dialog text-dark" id="some-dialog-id">
-            <div itemscope="itemscope" itemtype="http://schema.org/Article" class="article__container container article" id="article">
-              <article itemprop="articleBody" class="article__content">
-                <!-- ? Cover Article Img & Heading #1 -->
-                <figure itemscope="itemscope" itemtype="http://schema.org/ImageObject" class="d-none">
-                  <!-- width="600" height="300" -->
-                  <img src="/assets/img/dev-cover.jpeg" alt="Dev Notes cover by MrakCw" itemprop="contentUrl">
-                  <figcaption itemprop="description"></figcaption>
-                </figure>
-                <blockquote class="is-hidden">
-                  <p class="blog_name subtitle" itemprop="autor"><a href="/">WEB DEV PROJECT</a></p>
-                </blockquote>
-                <hr>
-                <h1 class="title has-text-centered" itemprop="headline">Hello everyone 👋 I am MrakCw 🧙</h1>
-                <h2 class="subtitle has-text-centered mb-0">Web developer & graphic designer</h2>
-                <hr>
-                <!--? Nav Section -->
-                <section class="section py-0 mx-auto is-flex is-justify-content-space-evenly is-gapless columns is-mobile" id="nav">
-                  <div class="box has-background-black column is-5">
-                    <h2 class="title has-text-white has-text-centered mb-0 mt-3 is-5">Site navigation</h2>
-                    <hr class="my-2 has-background-light w-100">
-                    <nav class="contents pt-0 pb-3 px-5 column is-12">
-                      <ul class="contents_list mx-2">
-                        <li class="contents_item"><a class="has-text-white" href="/cv/">CV</a></li>
-                        <li class="contents_item"><a class="has-text-white disabled" >Notes</a></li>
-                        <li class="contents_item"><a class="has-text-white disabled" href="/projects/">Projects</a></li>
-                        <li class="contents_item"><a class="has-text-white disabled" href="/contacts/">Contacts</a></li>
-                      </ul>
-                    </nav>
-                  </div>
-                  <div class="box has-background-black column is-5">
-                    <h2 class="title has-text-white has-text-centered mb-0 mt-3 is-5">Table of context</h2>
-                    <hr class="my-2 has-background-light w-100">
-                    <nav class="contents pt-0 pb-3 px-5 column is-12">
-                      <ul class="contents_list mx-2">
-                        <li class="contents_item"><a class="has-text-white" href="#passion">My passion</a></li>
-                        <li class="contents_item"><a class="has-text-white" href="#focused">My focus</a></li>
-                        <li class="contents_item"><a class="has-text-white" href="#quality">Work principle</a></li>
-                        <li class="contents_item"><a class="has-text-white" href="#about-me">About me</a></li>
-                      </ul>
-                    </nav>
-                  </div>
-                </section>
-                <!-- ? Main Section -->
-                <section class="section py-0">
-                  <hr class="mt-0">
-                  <a name="passion"></a>
-                  <h2 class="title is-4">My passion is Web Development & Technical side of SEO 🐯</h2>
-                  <!-- <p class="subtitle">Also i am a graphic designer and a creative person 🎨</p> -->
-                  <p>Since 2007 I have begun my road & created my first website 🌐</p>
-                  <p>When we didn’t have flex or grid style property 😅</p>
-      
-                  <blockquote><p>Born to create something amazing in this world 🌅</p></blockquote>
-                  
-                  <hr>
-                  <a name="focused"></a>
-                  <h2 class="title is-4">I am focused on improving my skills to pro level 💪</h2>
-                  <p>I revise source code more often than you may think and also i know the secret</p>
-                  <p>How to get impressive 100 / 100 points on page speed rank 📈 and more</p>
-                  
-                  <hr>
-                  <a name="quality"></a>
-                  <h2 class="title is-4">Quality and web performance in my work it's my principle 👈</h2>
-                  <blockquote><p>Quality - it means doing it right even if no one is asking you  to do this and no one controls results 👍</p></blockquote>
-                  
-                  <hr>
-                  <a name="about-me"></a>
-                  <h2 class="title is-4">In short about me</h2>
-                  <p>Some strange man based in Kyiv. 🥇</p>
-                  <p>I love what I do and do this excellent ✅</p>
-                 
-                  <hr>
-                </section>
-                <!-- ? Footer section -->
-                <!-- <section class="section py-0">
-                  <h2 class="title">Web navigation</h2>
-                  <nav class="contents box has-background-black py-3 column is-4 px-5">
-                    <ul class="contents_list">
-                      <li class="contents_item"><a class="has-text-white" href="/cv/">CV</a></li>
-                      <li class="contents_item"><a class="has-text-white disabled" href="/projects/">Projects</a></li>
-                      <li class="contents_item"><a class="has-text-white disabled" href="/contacts/">Contacts</a></li>
-                    </ul>
-                  </nav>
-                </section> -->
-              </article>
-            </div>
-            <button class="dialog__button button-absolute" type="button" onclick="window['some-dialog-id'].close()">❌</button>
-          </dialog>
-          <!-- ? END IV CONTENT -->
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+								<rect x="0" y="0" width="100%" height="100%" fill="none" />
+										<g class="circles">
+											<!-- <g  class="circles" transform="translate(100, 100) rotate(45 60 60)"> -->
+												<rect id="one" x="25%" y="100%" width="80" height="80" fill="rgba(255, 255, 255, 0.2)">
+													<!-- <animate attributeName="y" values="0%; -150%" dur="35s"  keyTimes="0;1" repeatCount="indefinite" /> -->
+													<animate attributeName="y" values="100%; -25%" dur="5s"  keyTimes="0;1" repeatCount="indefinite" />
+													<animateTransform attributeName="transform" type="rotate" values="45 0 0; 55 0 0" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<!-- <animateTransform attributeName="transform" type="rotate" values="45 0 0; 55 0 0" dur="35s" keyTimes="0;1" repeatCount="indefinite" /> -->
+													<!-- <animate attributeName="opacity" values="1; 0" dur="15s" begin="0s" keyTimes="0;1" repeatCount="indefinite" /> -->
+												</rect>
+												<!-- <rect x="10%" y="100%" width="20" height="20" fill="rgba(255, 255, 255, 0.2)">
+													<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animate attributeName="opacity" values="1; 0" dur="15s" begin="2s" keyTimes="0;1" repeatCount="indefinite" />
+												</rect>
+												<rect x="70%" y="100%" width="20" height="20" fill="rgba(255, 255, 255, 0.2)">
+													<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animate attributeName="opacity" values="1; 0" dur="15s" begin="4s" keyTimes="0;1" repeatCount="indefinite" />
+												</rect>
+												<rect x="40%" y="100%" width="60" height="60" fill="rgba(255, 255, 255, 0.2)">
+													<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animate attributeName="opacity" values="1; 0" dur="15s" begin="0s" keyTimes="0;1" repeatCount="indefinite" />
+												</rect>
+												<rect x="65%" y="100%" width="20" height="20" fill="rgba(255, 255, 255, 0.2)">
+													<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animate attributeName="opacity" values="1; 0" dur="15s" begin="0s" keyTimes="0;1" repeatCount="indefinite" />
+												</rect>
+												<rect x="75%" y="100%" width="110" height="110" fill="rgba(255, 255, 255, 0.2)">
+													<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animate attributeName="opacity" values="1; 0" dur="15s" begin="3s" keyTimes="0;1" repeatCount="indefinite" />
+												</rect>
+												<rect x="35%" y="100%" width="150" height="150" fill="rgba(255, 255, 255, 0.2)">
+													<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animate attributeName="opacity" values="1; 0" dur="15s" begin="7s" keyTimes="0;1" repeatCount="indefinite" />
+												</rect>
+												<rect x="50%" y="100%" width="25" height="25" fill="rgba(255, 255, 255, 0.2)">
+													<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animate attributeName="opacity" values="1; 0" dur="15s" begin="15s" keyTimes="0;1" repeatCount="indefinite" />
+												</rect>
+												<rect x="20%" y="100%" width="15" height="15" fill="rgba(255, 255, 255, 0.2)">
+													<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animate attributeName="opacity" values="1; 0" dur="15s" begin="2s" keyTimes="0;1" repeatCount="indefinite" />
+												</rect>
+												<rect x="85%" y="100%" width="150" height="150" fill="rgba(255, 255, 255, 0.2)">
+													<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+													<animate attributeName="opacity" values="1; 0" dur="15s" begin="0s" keyTimes="0;1" repeatCount="indefinite" />
+												</rect> -->
+										</g>
+							</svg>
+            
         </div>
-        <!-- ! hero-foot -->
-        <div class="hero-foot">
-          <div class="area" ><ul class="circles"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></div>
-        </div>
-				<div class="container text-center copyright mt-6 has-text-centered">
-					<p><a href="/" title="Go Home" class="disabled active">🏠 &nbsp;GO HOME</a> | <a href="/privacy-policy/">Privacy Policy</a></p>
-					<p> © 2021-2023 GitHub, Inc.</p>
-				</div>
       </div>
-      
-<!-- <svg version="1.1" id="canvas" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 400 400" xml:space="preserve">
-  <style type="text/css">
-    path{opacity:0.2;fill:#FFFFFF;}
-    .st1{ left: 25%; width: 80px; height: 80px; animation-delay: 0s}
-    .st2{ left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s}
-    .st3{ left: 70%; width: 20px; height: 20px; animation-delay: 4s}
-    .st4{ left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s}
-    .st5{ left: 65%; width: 20px; height: 20px; animation-delay: 0s}
-    .st6{ left: 75%; width: 110px; height: 110px; animation-delay: 3s}
-    .st7{ left: 35%; width: 150px; height: 150px; animation-delay: 7s}
-    .st8{ left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s}
-    .st9{ left: 20%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 35s}
-    .st0{ left: 85%; width: 150px; height: 150px; animation-delay: 0s; animation-duration: 11s}
-  </style>
-  <path class="st1" d="M80.7,500H7.3c-1.8,0-3.3-1.5-3.3-3.3v-73.4c0-1.8,1.5-3.3,3.3-3.3h73.4c1.8,0,3.3,1.5,3.3,3.3v73.4C84,498.5,82.5,500,80.7,500z"/>
-  <path class="st2" d="M112.1,474.8H98.7c-1.8,0-3.3-1.5-3.3-3.3v-13.4c0-1.8,1.5-3.3,3.3-3.3h13.4c1.8,0,3.3,1.5,3.3,3.3v13.4C115.4,473.3,114,474.8,112.1,474.8z"/>
-</svg> -->
 
-
-      <!--! Calendly badge widget -->
-      <script src="/assets/js/widget.js" async></script>
-      <!--? Calendly badge widget -->
-      <script>
-        window.onload = function() {
-          Calendly.initBadgeWidget({ 
-            url: 'https://calendly.com/mrakcw/meet', 
-            text: 'Open to new Projects', 
-            color: 'transparent', 
-            textColor: 'inherit', 
-            branding: false }); 
-          
-         
-
-          }
-     </script>
 
   </body>
 </html>

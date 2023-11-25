@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+    <rect x="0" y="0" width="100%" height="100%" fill="none" />
+    <g class="circles">
+				<rect x="25%" y="100%" width="80" height="80" fill="rgba(255, 255, 255, 0.2)">
+					<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animate attributeName="opacity" values="1; 0" dur="15s" begin="0s" keyTimes="0;1" repeatCount="indefinite" />
+				</rect>
+				<rect x="10%" y="100%" width="20" height="20" fill="rgba(255, 255, 255, 0.2)">
+					<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animate attributeName="opacity" values="1; 0" dur="15s" begin="2s" keyTimes="0;1" repeatCount="indefinite" />
+				</rect>
+				<rect x="70%" y="100%" width="20" height="20" fill="rgba(255, 255, 255, 0.2)">
+					<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animate attributeName="opacity" values="1; 0" dur="15s" begin="4s" keyTimes="0;1" repeatCount="indefinite" />
+				</rect>
+				<rect x="40%" y="100%" width="60" height="60" fill="rgba(255, 255, 255, 0.2)">
+					<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animate attributeName="opacity" values="1; 0" dur="15s" begin="0s" keyTimes="0;1" repeatCount="indefinite" />
+				</rect>
+				<rect x="65%" y="100%" width="20" height="20" fill="rgba(255, 255, 255, 0.2)">
+					<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animate attributeName="opacity" values="1; 0" dur="15s" begin="0s" keyTimes="0;1" repeatCount="indefinite" />
+				</rect>
+				<rect x="75%" y="100%" width="110" height="110" fill="rgba(255, 255, 255, 0.2)">
+					<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animate attributeName="opacity" values="1; 0" dur="15s" begin="3s" keyTimes="0;1" repeatCount="indefinite" />
+				</rect>
+				<rect x="35%" y="100%" width="150" height="150" fill="rgba(255, 255, 255, 0.2)">
+					<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animate attributeName="opacity" values="1; 0" dur="15s" begin="7s" keyTimes="0;1" repeatCount="indefinite" />
+				</rect>
+				<rect x="50%" y="100%" width="25" height="25" fill="rgba(255, 255, 255, 0.2)">
+					<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animate attributeName="opacity" values="1; 0" dur="15s" begin="15s" keyTimes="0;1" repeatCount="indefinite" />
+				</rect>
+				<rect x="20%" y="100%" width="15" height="15" fill="rgba(255, 255, 255, 0.2)">
+					<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animate attributeName="opacity" values="1; 0" dur="15s" begin="2s" keyTimes="0;1" repeatCount="indefinite" />
+				</rect>
+				<rect x="85%" y="100%" width="150" height="150" fill="rgba(255, 255, 255, 0.2)">
+					<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+					<animate attributeName="opacity" values="1; 0" dur="15s" begin="0s" keyTimes="0;1" repeatCount="indefinite" />
+				</rect>
+    </g>
+</svg>
+
+
+<!-- 
+<rect x="25%" y="100%" width="80" height="80" fill="rgba(255, 255, 255, 0.2)">
+    <animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+    <animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+    <!-- Задаем delay в 3 секунды и duration в 15 секунд -->
+    <animate attributeName="opacity" values="1; 0" dur="15s" begin="3s" keyTimes="0;1" repeatCount="indefinite" />
+</rect>
+
+
+ -->
+
+<!-- 
+Animation
+
+<rect x="25%" y="100%" width="80" height="80" fill="rgba(255, 255, 255, 0.2)">
+	<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+	<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+</rect>
+ | animation-delay: 0s
+
+<rect x="10%" y="100%" width="20" height="20" fill="rgba(255, 255, 255, 0.2)">
+	<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+	<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+</rect>
+ | animation-delay: 2s | animation-duration: 12s
+
+<rect x="70%" y="100%" width="20" height="20" fill="rgba(255, 255, 255, 0.2)">
+	<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+	<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+</rect>
+ | animation-delay: 4s
+
+<rect x="40%" y="100%" width="60" height="60" fill="rgba(255, 255, 255, 0.2)">
+	<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+	<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+</rect>
+ | animation-delay: 0s | animation-duration: 18s
+
+<rect x="65%" y="100%" width="20" height="20" fill="rgba(255, 255, 255, 0.2)">
+	<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+	<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+</rect>
+ | animation-delay: 0s
+
+<rect x="75%" y="100%" width="110" height="110" fill="rgba(255, 255, 255, 0.2)">
+	<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+	<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+</rect>
+ | animation-delay: 3s
+
+<rect x="35%" y="100%" width="150" height="150" fill="rgba(255, 255, 255, 0.2)">
+	<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+	<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+</rect>
+ | animation-delay: 7s
+
+<rect x="50%" y="100%" width="25" height="25" fill="rgba(255, 255, 255, 0.2)">
+	<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+	<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+</rect>
+ | animation-delay: 15s | animation-duration: 45s
+
+<rect x="20%" y="100%" width="15" height="15" fill="rgba(255, 255, 255, 0.2)">
+	<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+	<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+</rect>
+ | animation-delay: 2s | animation-duration: 35s
+
+<rect x="85%" y="100%" width="150" height="150" fill="rgba(255, 255, 255, 0.2)">
+	<animate attributeName="y" values="0%; -150%" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+	<animateTransform attributeName="transform" type="rotate" values="0 45 45; 720 45 45" dur="35s" keyTimes="0;1" repeatCount="indefinite" />
+</rect>
+ | animation-delay: 0s | animation-duration: 11s
+
+
+ -->
