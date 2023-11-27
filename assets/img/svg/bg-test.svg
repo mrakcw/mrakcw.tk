@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%" viewBox="0 0 40 40" preserveAspectRatio="none" style="visibility: visible;">
+  <defs>
+    <g id="cloneObject">
+      <rect width="10" height="10" fill="#Fb3">
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="7s" repeatCount="indefinite"/>
+      </rect>
+<!--      setRotate(angle, cx, cy) -->
+    </g>
+  </defs>
+ <rect fill="rgba(255, 255, 255, .2)"
+       width="40" height="40"
+       x="0" y="0" 
+       cx="50%" cy="50%"
+       rx="10%" ry="10%"/>
+   <animateTransform 
+       attributeName="transform" 
+       type="rotate"
+       from="0 5 5"
+       to="720 5 5"
+       dur="18s"
+       repeatCount="indefinite"/>
+ </rect>
+</svg>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="index, follow, archive">
+    <!-- MT -->
+    <title></title>
+    <meta name="description" content="">
+    <meta name="theme-color" content="#FB3">
+    <link rel="icon" href="/assets/favicon/favicon.ico" type="image/x-icon">
+
+    <!-- Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jura:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma-helpers/0.4.3/css/bulma-helpers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulmaswatch/0.8.1/cyborg/bulmaswatch.min.css">
+    <style>
+      :root{
+        --hover-t: all .45s cubic-bezier(0.9, 0.1, 0.4, 0.7) 0s;
+      }
+      /*! It's MOBILE-FIRST */
+      html{ height: 100%; width: 100%; position: relative;}
+      body{ font-family: 'Jura', sans-serif; font-size: 18px;}
+      body::-webkit-scrollbar{ width: .25em; background-color: #fb3; outline: 1px solid slategrey;}
+      body::-webkit-scrollbar-button{ display: none;}
+      body::-webkit-scrollbar-track{ box-shadow: inset 0 0 1px rgba(0, 0, 0, .89);}
+      body::-webkit-scrollbar-thumb{ max-width: .25em; background-color: red; border-radius: 3em; -webkit-border-radius: 3em; -moz-border-radius: 3em; -ms-border-radius: 3em; -o-border-radius: 3em;}
+      .hero nav.container{ position: relative; max-height: 65px; height: 100%;}
+      label[for="menuToggle"]{ display: grid; place-items: center; max-height: 60px; height: 60px; width: 60px; overflow-y: hidden;}
+      label[for="menuToggle"] svg{ width: 100%; height: 100%; max-width: 2em; max-height: fit-content; display: flex; justify-content: center; align-items: center;}
+      .navbar-item img{ width:100%;height:100%;pointer-events:none;}
+      /* .navbar-brand a .navbar-logo {max-height:44px;filter: drop-shadow(.75pt 0pt 0px #fff) drop-shadow(-.5pt -.5pt 0px #fff);transition: var(--hover-t);} */
+      .navbar-brand a:hover {filter: invert(1) drop-shadow(1px 1px 0px #fb3) drop-shadow(-.25px -.26px .15px #fb3);transition: var(--hover-t);}
+			/* .navbar-brand a:hover img {filter: drop-shadow(0px 0px 0px #fff) invert(1);transition: var(--hover-t);} */
+      .iv-template{ background: rgb(2, 0, 36); background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 5%, #3431ec 51%, rgba(42, 10, 44, 1) 95%); background-size: 350% 350%; -webkit-animation: AnimateBG 20s ease infinite; animation: AnimateBG 20s ease infinite;overflow: auto;}
+      nav.navbar.border{ border-bottom: 3px #fb3 solid; border-top: 3px #fb3 solid;height:64px;}
+      /* .title, .subtitle{ text-shadow: -2px -2px 0 #000, 2px 2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; filter: drop-shadow(2px 2px 2px #000);} */
+      .iv-template .hero-body{z-index:3;min-height:-webkit-fill-available;height:100%;display:grid;place-items:center;position:relative;}
+      figure figcaption {text-align: center;margin: 1rem 0 0 0;font-size: 1.75rem;font-family: 'Press Start 2P', cursive;}
+      figure, figure figcaption {text-shadow: -2px -2px 0 #000, 2px 2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; filter: drop-shadow(2px 2px 1px #000);}
+      figure a[name="article-img"] img {margin: 0 auto;transition: var(--hover-t);}
+      figure a[name="article-img"]:hover{filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, .8));transition: var(--hover-t);}
+      #menuToggle{filter:opacity(0);}
+      dialog{ position: absolute; top: 1px; left: 1px; right: 1px; z-index: 9;}
+      .hero-head{position:fixed;width:100%;height:64px;z-index:9;}
+      .hero-body{margin-top:65px;}
+      .hero-foot .container{display:flex;justify-content:center;height:100%;min-height:-webkit-fill-available;position:relative}
+      .navbar-item:not(.navbar-dropdown a.navbar-item,.navbar-menu .navbar-item){height:64px;transition: var(--hover-t);}
+      .navbar-item{padding:0 .75rem;}
+      .navbar-item .navbar-dropdown{font-size:1rem;}
+      .navbar-item .navbar-dropdown .navbar-divider{background-color:#fb3;}
+      /* .navbar-link.is-arrowless {height: 100%;} */
+      .navbar-link:hover{color:#fb3}
+      .hero-body figure {max-width: 310px;margin:0 auto;}
+      .hero-body div.column {max-width: 890px;display:flex;flex-direction:column;align-items:center;gap:.5rem;}
+      .hero.is-fullheight .hero-body{justify-content:center;}
+      nav.navbar.border .container {max-width: 1200px;}
+      .navbar-link{font-weight: 500;}
+      section.hero .hero-body{padding:1rem 1.5rem;}
+      .copyright{height:60px;bottom: 2rem;flex:0 1 100%;}
+      .text-center{text-align:center;}
+      svg.hb{transform:scale(1.5);}
+      /* ! COMPONENTS */
+      /* button option */
+      #get-contact {border:solid 2px;min-width: 295px;max-width: 295px;width:295px;z-index:2;}
+      /* #get-contact::before {content: '';background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle fill="green" cx="50" cy="50" r="50"/></svg>');width: 10px;height: 10px;transform: translateX(-.5rem);margin-left: .5rem;} */
+      /* #get-contact::after {content: 'Open to new Projects';} */
+      /* #get-contact:hover::before,#get-contact:hover::after{opacity: 0;} */
+      #get-contact:hover {display:flex;margin:0 auto;justify-content:space-around;color:#000;border-color: #eee;/*border-width:medium;*/filter:drop-shadow(0px 0px 1px #000);text-shadow:1px 1px 0px #fb3;transition: var(--hover-t);}
+      /* #get-contact:hover::before{opacity: 1;content:'GET IN TOUCH';background:none; width: auto;height: auto;transition: all .45s cubic-bezier(0.9, 0.1, 0.4, 0.7) .2s;} */
+      /* #get-contact:hover::after{opacity: 1;content:'➜';width:1rem;transition: all .45s cubic-bezier(0.9, 0.1, 0.4, 0.7) .2s;} */
+      /* ---------- */
+      /* dynamic-bg */
+      .area{width: 100%; min-height:100vh; height: 100%; position: absolute; top: 0; pointer-events: none}
+      .circles{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden}
+      .circles li{ position: absolute; display: block; list-style: none; width: 20px; height: 20px; background: rgba(255, 255, 255, 0.2); animation: dynamic-bg 35s linear infinite; bottom: -150px}
+      .circles li:nth-child(1){ left: 25%; width: 80px; height: 80px; animation-delay: 0s}
+      .circles li:nth-child(2){ left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s}
+      .circles li:nth-child(3){ left: 70%; width: 20px; height: 20px; animation-delay: 4s}
+      .circles li:nth-child(4){ left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s}
+      .circles li:nth-child(5){ left: 65%; width: 20px; height: 20px; animation-delay: 0s}
+      .circles li:nth-child(6){ left: 75%; width: 110px; height: 110px; animation-delay: 3s}
+      .circles li:nth-child(7){ left: 35%; width: 150px; height: 150px; animation-delay: 7s}
+      .circles li:nth-child(8){ left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s}
+      .circles li:nth-child(9){ left: 20%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 35s}
+      .circles li:nth-child(10){ left: 85%; width: 150px; height: 150px; animation-delay: 0s; animation-duration: 11s}
+      /* ---------- */
+      /* ! MEDIA */
+      @media (max-width: 480px) {
+        .container.columns.is-vcentered.is-centered {margin: 0 auto;display: flex;flex-direction: column;}
+        figure figcaption {text-align: center;}
+        figure a[name="article-img"] img {max-width: 45vw;}
+      }
+      @media (max-width: 768px) {
+        #nav{flex-direction: column; gap: 1rem;}
+        #nav div.box {min-width: 100%}
+        #nav div.box nav {min-width: 100%}
+        .hero-body #hello {display: flex;flex-direction: column;justify-content: space-around;height: -webkit-fill-available;min-height: 100%;gap:2rem;}
+      }
+      @media (max-width: 1023px){
+        #menuToggle:not(#menuToggle:checked){opacity:0;position:absolute;left:0;height:90vh;right:-25%;top:61px;width:100%;visibility:hidden;}
+        #menuToggle:checked{pointer-events:none;opacity:1;height:90vh;position:absolute;right:-25%;top:61px;width:100%;filter:opacity(.65);transition:1.2s ease .15s; -webkit-transition:1.2s ease .15s; -moz-transition:1.2s ease .15s; -ms-transition:1.2s ease .15s; -o-transition:1.2s ease .15s; -webkit-filter:opacity(.65);}
+        #menuToggle:checked::after{content:'';position:fixed;left:20%;right:0;top:0;bottom:0;opacity:1;height:90vh;width:100%;background-color:#000;display:flex;}
+        #menuToggle:not(#menuToggle:checked) + .navbar-burger{min-height:96vh;pointer-events:none;top:61px;left:-100%;opacity:.3;transition:all .45s ease;-webkit-transition:all .45s ease;-moz-transition:all .45s ease;-ms-transition:all .45s ease;-o-transition:all .45s ease;}
+        #menuToggle:checked + .navbar-burger{top:61px;left:0;min-height:96vh;}
+        /* .hero div:has(dialog[open]) ~ #menuToggle:not(#menuToggle:checked) + .navbar-burger {left:50%!important;} */
+        /* .navbar-burger li{opacity:0;transition:opacity 0.35s 1s ease;-webkit-transition:opacity 0.35s 1s ease;-moz-transition:opacity 0.35s 1s ease; -ms-transition:opacity 0.35s 1s ease;-o-transition:opacity 0.35s 1s ease;} */
+        /* #menuToggle:checked + .navbar-burger li{width:100%;margin: 0 auto;opacity:1;transition:opacity 0.35s ease;-webkit-transition:opacity 0.35s ease;-moz-transition:opacity 0.35s ease;-ms-transition:opacity 0.35s ease;-o-transition:opacity 0.35s ease;display:grid;} */
+        .navbar>.container{display:flex;align-items:center;justify-content:space-between;max-height:58px;}
+        .navbar-end.touch{display:inline-flex;}
+        .navbar-end.touch svg{width: 2.2em;height:36px;}
+        .navbar-end.touch label{ display: grid; place-items: center}
+        .navbar-burger{ position:absolute; width:-webkit-fill-available; min-width:fit-content; height:fit-content; min-height:90vh; background:#2a2a2a50; margin:auto; padding:0 1rem; display:flex; flex-direction:column; justify-content:center;z-index: 9; }
+        ul.navbar-burger{width:50%;display:flex;padding:1.5rem;transition:all .35s ease-in;-webkit-transition:all .35s ease-in;-moz-transition:all .35s ease-in;-ms-transition:all .35s ease-in;-o-transition:all .35s ease-in;}
+        .navbar-link{color:#333;}
+        .navbar-link:hover{color:#fb3;}
+      }
+      @media (min-width: 1024px){
+        .navbar-item.touch,.navbar-item.touch svg,#menuToggle{display: none;}
+        .navbar>.container{display:flex;align-items:center;justify-content:space-between;}
+        .navbar-menu{display:contents}
+        .navbar-dropdown{right:0;left:auto;}
+        .navbar-link:hover{background-color:rgba(255,255,255,.17);}
+        li.navbar-item.has-dropdown .navbar-dropdown a.navbar-link {min-width: 200px;background-color: unset;}
+        li.navbar-item.has-dropdown:hover .navbar-dropdown a.navbar-link {background-color: unset;}
+        li.navbar-item.has-dropdown:hover .navbar-dropdown a.navbar-link:hover {background-color:rgba(255,255,255,.17);}
+        li.navbar-item.has-dropdown a.navbar-link {min-width: unset;}
+      }
+
+      /* Widget */
+      .calendly-inline-widget,.calendly-inline-widget *,.calendly-badge-widget,.calendly-badge-widget *,.calendly-overlay,.calendly-overlay *{font-size:16px;line-height:1.2em}
+      .calendly-inline-widget iframe,.calendly-badge-widget iframe,.calendly-overlay iframe{display:inline;width:100%;height:100%}.calendly-popup-content { position: relative; } 
+      .calendly-popup-content.calendly-mobile{-webkit-overflow-scrolling:touch;overflow-y:auto}
+      .calendly-overlay{position:fixed;top:0;left:0;right:0;bottom:0;overflow:hidden;z-index:9999;background-color:#a5a5a5;}
+      .calendly-overlay .calendly-close-overlay{position:absolute;top:0;left:0;right:0;bottom:0}
+      .calendly-overlay .calendly-popup{box-sizing:border-box;position:absolute;top:50%;left:50%;transform:translateY(-50%) translateX(-50%);width:80%;min-width:900px;max-width:1000px;height:90%;max-height:680px}
+      @media (max-width: 975px){.calendly-overlay .calendly-popup{position:fixed;top:0px;left:0;right:0;bottom:0;transform:none;width:100%;height:auto;min-width:0;max-height:none}}
+      /* @media (max-width: 975px){.calendly-overlay .calendly-popup{position:fixed;top:50px;left:0;right:0;bottom:0;transform:none;width:100%;height:auto;min-width:0;max-height:none}} */
+      .calendly-overlay .calendly-popup .calendly-popup-content{height:100%}
+      .calendly-overlay .calendly-popup-close{position:absolute;top:25px;left:25px;color:#000;width:19px;height:19px;cursor:pointer;background:url('/assets/img/close-icon.svg') no-repeat;background-size:contain;filter: drop-shadow(-1px 0px 1px black) drop-shadow(0px 1px 2px black) drop-shadow(2px 0px 2px rgba(0, 0, 0, .3));}
+      @media (max-width:975px){.calendly-overlay .calendly-popup-close{top:15px;left:15px}}
+      .calendly-badge-widget{position:relative;right:0px;bottom:0px;z-index:9998}
+      /* .calendly-badge-widget{position:fixed;right:20px;bottom:15px;z-index:9998} */
+      /* .calendly-badge-widget .calendly-badge-content{display:table-cell;width:auto;height:45px;padding:0 30px;border-radius:25px;box-shadow:rgba(0,0,0,.25) 0 2px 5px;font-family:sans-serif;text-align:center;vertical-align:middle;font-weight:700;font-size:14px;color:#fff;cursor:pointer} */
+      .calendly-badge-widget .calendly-badge-content, .hero-body button.button{display:grid;place-items:center; width:295px;height:40px;padding:0 30px;border-radius:25px;box-shadow:rgba(0,0,0,.25) 0 2px 5px;font-family:sans-serif;text-align:center;vertical-align:middle;font-weight:700;font-size:14px;color:#fff;cursor:pointer}
+      .calendly-badge-widget .calendly-badge-content.calendly-white{color:#666a73}
+      .calendly-badge-widget .calendly-badge-content span{display:block;font-size:12px}
+      .calendly-spinner{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);text-align:center;z-index:-1}
+      .calendly-spinner>div{display:inline-block;width:18px;height:18px;background-color:#e1e1e1;border-radius:50%;vertical-align:middle;animation:calendly-bouncedelay 1.4s infinite ease-in-out;animation-fill-mode:both}
+      .calendly-spinner .calendly-bounce1{animation-delay:-.32s}
+      .calendly-spinner .calendly-bounce2{animation-delay:-.16s}
+
+
+      article.article__content >figure{ width: 100%; max-width: -webkit-fill-available;}
+      dialog *:not(hr) {color: #000!important;}
+      dialog::before{background-color: rgba(0,0,0,.5);content:"";}
+
+      .button-absolute{ display: grid; position: fixed; top: 4.25rem; right: .5rem; z-index: 10; font-size: 1.2rem;line-height: 1.5;}
+      dialog article figure{ max-height: 224px; overflow: hidden;}
+      article > hr:first-of-type{display: none;}
+      article h1 {margin-top: 1.5rem;}
+      a{color:#fff;}
+      a:is(:hover,:focus){color:#fb3;}
+      a:focus-visible{outline:unset;}
+      .d-none{display:none;}
+      .w-100{width:100%;}
+      :target{scroll-margin-block-start: 5rem;}
+      /* .hero-foot{ height: -webkit-fill-available; position: absolute; bottom: -13rem; left: 0; right: 0;} */
+
+      /* ! ANIMATION */
+      @-webkit-keyframes AnimateBG{ 0%{ background-position: 0% 50%;} 50%{ background-position: 100% 50%;} 100%{ background-position: 0% 50%;}}
+      @keyframes AnimateBG{ 0%{ background-position: 0% 50%;} 50%{ background-position: 100% 50%;} 100%{ background-position: 0% 50%;}}
+      @keyframes dynamic-bg{0%{ transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 0}100%{ transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%}}
+      @keyframes calendly-bouncedelay{0%,80%,100%{transform:scale(0)}40%{transform:scale(1)}}
+
+			/* .hero-body svg{ position: absolute; top: 0; left: 0; bottom: 0; right: 0;} */
+    </style>
+
+    <style>
+      .svg {position: absolute;left: 0;right: 0;top: -65px;bottom: 0;z-index: 100;}
+      .svg img{width: 100%;height: 100%;}
+      .svg svg{width: 100%;height: 100%;pointer-events:none;}
+      .st0{fill:#FFFFFF;}
+      .st1{opacity:0.2;fill:#FFFFFF;transform:translateY(-45rem);}
+      #wrap-box{transform: translate(10px, 150%);}
+      /* #box-1{animation: dynamic-bg 35s linear infinite;} */
+      /* dynamic-bg */
+      .dynamic-bg{width:100%;min-height:100vh;height:-webkit-fill-available;position:absolute;top:-65px;bottom:0;left:0;right:0;pointer-events:fill;}
+      #canvas-bg{position:absolute;top:0;bottom:0;right:0;left:0;width:100%;height:100%;overflow:hidden;}
+      .dynamic-boxes{position: relative;/*transform-origin:left;transform:translateX(-50%);*/}
+      .circles{position:absolute;display:block;width:20px;height:20px;fill:rgba(255, 255, 255, .2);border-radius:10px;
+      animation:dynamic--bg 35s linear infinite;}
+      #box-1{width:40px;height:40px;animation-delay:0s;}
+      #box-2{/*transform-origin:left;transform:translateX(10%);*/width:20px;height:20px;animation-delay:2s;}
+      .circles li:nth-child(2){ left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s}
+      .circles li:nth-child(3){ left: 70%; width: 20px; height: 20px; animation-delay: 4s}
+      .circles li:nth-child(4){ left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s}
+      .circles li:nth-child(5){ left: 65%; width: 20px; height: 20px; animation-delay: 0s}
+      .circles li:nth-child(6){ left: 75%; width: 110px; height: 110px; animation-delay: 3s}
+      .circles li:nth-child(7){ left: 35%; width: 150px; height: 150px; animation-delay: 7s}
+      .circles li:nth-child(8){ left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s}
+      .circles li:nth-child(9){ left: 20%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 35s}
+      .circles li:nth-child(10){ left: 85%; width: 150px; height: 150px; animation-delay: 0s; animation-duration: 11s}
+      /* ---------- */
+      .area {width:100%;min-height:100vh;height:100%;position:absolute;top:0;pointer-events:none;}
+      .squares {position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;}
+      .squares svg {position:absolute;width:100%;height:100%;}
+      @keyframes dynamic-bg {
+      0% {transform:translateY(0) rotate(0deg);opacity:1;border-radius:0;}
+      100% {transform:translateY(-1000px) rotate(720deg);opacity:0;border-radius:50%;}}
+    </style>
+    <style>
+      :root{
+--hover-t: all .45s cubic-bezier(0.9, 0.1, 0.4, 0.7) 0s;
+}
+/*! It's MOBILE-FIRST */
+html{ height: 100%; width: 100%; position: relative;}
+body{ font-family: 'Jura', sans-serif; font-size: 18px;}
+body::-webkit-scrollbar{ width: .25em; background-color: #fb3; outline: 1px solid slategrey;}
+body::-webkit-scrollbar-button{ display: none;}
+body::-webkit-scrollbar-track{ box-shadow: inset 0 0 1px rgba(0, 0, 0, .89);}
+body::-webkit-scrollbar-thumb{ max-width: .25em; background-color: red; border-radius: 3em; -webkit-border-radius: 3em; -moz-border-radius: 3em; -ms-border-radius: 3em; -o-border-radius: 3em;}
+.hero nav.container{ position: relative; max-height: 65px; height: 100%;}
+  body .hero {background: rgb(2, 0, 36); background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 5%, #3431ec 51%, rgba(42, 10, 44, 1) 95%); background-size: 350% 350%; -webkit-animation: AnimateBG 20s ease infinite; animation: AnimateBG 20s ease infinite;overflow: auto;}
+label[for="menuToggle"]{ display: grid; place-items: center; max-height: 60px; height: 60px; width: 60px; overflow-y: hidden;}
+label[for="menuToggle"] svg{ width: 100%; height: 100%; max-width: 2em; max-height: fit-content; display: flex; justify-content: center; align-items: center;}
+.navbar-item img{ width:100%;height:100%;pointer-events:none;}
+.navbar-brand a {transition: var(--hover-t);}
+.hero-head{position:fixed;width:100%;height:64px;z-index:9;}
+.hero-body{margin-top:65px;}
+.hero-foot .container{display:flex;justify-content:center;height:100%;min-height:-webkit-fill-available;position:relative}
+.hero-body figure {max-width: 310px;margin:0 auto;}
+.hero-body div.column {max-width: 890px;display:flex;flex-direction:column;align-items:center;gap:.5rem;}
+.hero.is-fullheight .hero-body{justify-content:center;}
+section.hero .hero-body{padding:1rem 1.5rem;}
+
+/* dynamic-bg */
+.area{width: 100%; min-height:100vh; height: 100%; position: absolute; top: 0; pointer-events: none}
+.circles{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden}
+.circles li{ position: absolute; display: block; list-style: none; width: 20px; height: 20px; background: rgba(255, 255, 255, 0.2); animation: dynamic-bg 35s linear infinite; bottom: -150px}
+.circles li:nth-child(1){ left: 25%; width: 80px; height: 80px; animation-delay: 0s}
+.circles li:nth-child(2){ left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s}
+.circles li:nth-child(3){ left: 70%; width: 20px; height: 20px; animation-delay: 4s}
+.circles li:nth-child(4){ left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s}
+.circles li:nth-child(5){ left: 65%; width: 20px; height: 20px; animation-delay: 0s}
+.circles li:nth-child(6){ left: 75%; width: 110px; height: 110px; animation-delay: 3s}
+.circles li:nth-child(7){ left: 35%; width: 150px; height: 150px; animation-delay: 7s}
+.circles li:nth-child(8){ left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s}
+.circles li:nth-child(9){ left: 20%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 35s}
+.circles li:nth-child(10){ left: 85%; width: 150px; height: 150px; animation-delay: 0s; animation-duration: 11s}
+/* ---------- */
+a{color:#fff;}
+a:is(:hover,:focus){color:#fb3;}
+a:focus-visible{outline:unset;}
+.d-none{display:none;}
+.w-100{width:100%;}
+:target{scroll-margin-block-start: 5rem;}
+
+/* ! ANIMATION */
+@-webkit-keyframes AnimateBG{ 0%{ background-position: 0% 50%;} 50%{ background-position: 100% 50%;} 100%{ background-position: 0% 50%;}}
+@keyframes AnimateBG{ 0%{ background-position: 0% 50%;} 50%{ background-position: 100% 50%;} 100%{ background-position: 0% 50%;}}
+@keyframes dynamic-bg{0%{ transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 0}100%{ transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%}}
+@keyframes calendly-bouncedelay{0%,80%,100%{transform:scale(0)}40%{transform:scale(1)}}
+
+  
+.area {width:100%;min-height:100vh;height:100%;position:absolute;top:0;pointer-events:none;}
+.animated-squares{overflow: hidden;}
+.squares {position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;}
+.squares svg {position:absolute;width:100%;height:100%;}
+@keyframes dynamic-bg {
+0% {transform:translateY(0) rotate(0deg);opacity:1;border-radius:0;}
+100% {transform:translateY(-1000px) rotate(720deg);opacity:0;border-radius:50%;}}
+.preview{text-shadow: 3px 3px 2px rgba(0, 0, 0, .95);}
+    </style>
+  </head>
+  <body>
+      <!-- 1st screen -->
+      <div class="hero iv-template is-fullheight">
+        <!-- ! hero-head -->
+				<div class="hero-head is-fixed-top has-background-black" role="navigation" aria-label="main navigation">
+          <nav class="navbar border">
+            <div class="container">
+              <div class="navbar-brand navbar-start">
+                <a class="navbar-item" href="https://mrakcw.tk/" title="Home link"><img src="https://mrakcw.tk/assets/img/logo/mr-navbar.svg" alt="logo" title="Go home" class="navbar-logo"></a>
+              </div>
+              <div class="navbar-end touch">
+                <label for="menuToggle" class="navbar-item touch">
+                  <svg class="hb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" stroke="#eee" stroke-width=".8" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer"><path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7"><animate dur="0.2s" attributeName="d" values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7" fill="freeze" begin="start.begin" /><animate dur="0.2s" attributeName="d" values="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7;M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7" fill="freeze" begin="reverse.begin" /></path><rect width="10" height="10" stroke="none"><animate dur="2s" id="reverse" attributeName="width" begin="click" /></rect><rect width="10" height="10" stroke="none"><animate dur="0.001s" id="start" attributeName="width" values="10;0" fill="freeze" begin="click" /><animate dur="0.001s" attributeName="width" values="0;10" fill="freeze" begin="reverse.begin" /></rect></svg>
+                </label>
+                <input id="menuToggle" type="checkbox">
+                <ul class="navbar-menu navbar-burger has-background-white-bis has-text-centered">
+                  <li class="navbar-item"><div class="navbar-link is-arrowless" onclick="window['some-dialog-id'].show()" aria-controls="some-dialog-id">View content</div></li>
+                  <li class="navbar-item has-dropdown is-hoverable">
+                      <a class="navbar-link is-arrowless">More</a>
+                      <div class="navbar-dropdown">
+                        <!-- <a class="navbar-link is-arrowless">About</a> -->
+                        <a class="navbar-link is-arrowless" href="https://mrakcw.tk/notes/">Notes</a>
+                        <a class="navbar-link is-arrowless" href="https://mrakcw.tk/projects/">Projects</a>
+                        <a class="navbar-link is-arrowless" href="https://mrakcw.tk/contacts/">Contacts</a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-link is-arrowless">Hello world</a>
+                      </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <!-- ! hero-body -->
+        <div class="hero-body">
+					<div class="d-none">
+						<!-- <img src="/assets/img/svg/bg.svg" alt="test"> 
+<div class="dynamic-bg">
+  
+<!-- viewBox="0 0 500 250" 
+  <rect class="circles" width="80" height="80" x="40" y="40" rx="5" ry="5" cy="40" cx="40" id="box-1"/> 
+  <animateTransform attributeName="transform" type="rotate" values="0; 720" dur="5s" keyTimes="0;1" repeatCount="indefinite" /> -->
+  <!-- ? вариант №0  
+     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" id="canvas-bg">
+          <svg viewBox="-100 -100 400 400">
+
+          <g class="dynamic-boxes">
+            <rect width="100" height="100" fill="#Fb3" x="0" y="0" cx="50%" cy="50%" rx="5%" ry="5%" opacity=".2" id="box-2" />
+            <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="1080 50 50" dur="15s" keyTimes="0;1" repeatCount="indefinite" />
+          </g>
+          <animate attributeName="y" values="100%; -150%" dur="15s"  keyTimes="0;1" repeatCount="indefinite" />
+          </svg>
+        </svg> -->
+
+  <!-- ? вариант №1 -->
+  <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" id="canvas-bg">
+    <svg viewBox="-100 -100 400 400">
+      <g class="dynamic-boxes">
+        <rect width="100" height="100" fill="#Fb3" x="0" y="0" cx="50%" cy="50%" rx="5%" ry="5%" opacity=".2" id="box-2" />
+        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="1080 50 50" dur="15s" keyTimes="0;1" repeatCount="indefinite" />
+      </g>
+      <animate attributeName="y" values="100%; -150%" dur="15s"  keyTimes="0;1" repeatCount="indefinite" />
+    </svg>
+  </svg> -->
+
+  <!-- ? вариант №2 -->
+  <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" id="canvas-bg" viewBox="-100 -100 400 400">
+    <g class="dynamic-boxes">
+      <rect width="100" height="100" fill="#Fb3" x="0" y="0" cx="50%" cy="50%" rx="5%" ry="5%" opacity=".2" id="box-2">
+        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="1080 50 50" dur="15s" keyTimes="0;1" repeatCount="indefinite" />
+      </rect>
+      <animate attributeName="y" values="100%; -150%" dur="15s" keyTimes="0;1" repeatCount="indefinite" />
+    </g>
+  </svg> -->
+
+
+  <!-- ? вариант №3 💚 -->
+  <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" id="canvas-bg" viewBox="-100 -100 330 330">
+    
+    <g class="dynamic-boxes" transform="translate(0 0)">
+      <animateTransform attributeName="transform" type="translate" values="0 400; 0 -300" dur="15s" keyTimes="0;1" repeatCount="indefinite" />
+     
+      <rect id="box-1" fill="#fff" x="0" y="0" cx="50%" cy="50%" rx="5px" ry="5px" opacity=".2">
+        <animateTransform attributeName="transform" type="rotate" from="0 20 20" to="1080 20 20" dur="15s" keyTimes="0;1" repeatCount="indefinite" />
+      </rect>
+     
+      <rect id="box-2" fill="#fff" x="0" y="0" cx="50%" cy="50%" rx="5px" ry="5px" opacity=".2">
+        <animateTransform attributeName="transform" type="rotate" from="0 20 20" to="1080 20 20" dur="12s" keyTimes="0;1" repeatCount="indefinite" />
+      </rect>
+     
+    </g>
+  </svg> -->
+  
+  
+  <!-- ? вариант №4 --
+  <svg class="animated-squares" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="overflow: hidden;">
+    <g>
+      <!--? Vertical move up --
+      <animateTransform attributeName="transform" type="translate" values="0 100; 0 -50" dur="15s" keyTimes="0;1" repeatCount="indefinite" />
+      <!--? Квадрат --
+      <rect id="qq-1" rx="1" ry="1" class="square" x="0" y="0" width="10" height="10" fill="rgba(255, 255, 255, 0.2)">
+        <!--? Вращение --
+        <animateTransform attributeName="transform" type="rotate" from="0 5 5" to="360 5 5" dur="5s" repeatCount="indefinite" />
+      </rect>
+      <!--? Квадрат 2 --
+      <rect id="qq-2" rx="1" ry="1" class="square" x="10%" y="30" width="10" height="10" fill="rgba(255, 255, 255, 0.2)">
+        <!--? Вращение --
+        <animateTransform attributeName="transform" type="rotate" from="0 15 35" to="360 15 35" dur="7s" repeatCount="indefinite" />
+      </rect>
+      
+      <!--? Клон 1 --
+      <use id="clone-1" href="#qq-1" fill="#fff" transform="translate(25, 10)" />
+      <use id="clone-2" href="#qq-1" fill="#fff" transform="translate(45, -20)" />
+    </g>
+  </svg>
+
+
+  
+  
+  
+
+
+  <!-- <use xlink:href="#box-2" x="48" y="0" fill="rgba(255,255,255,0.7" /> --
+</div>-->
+           
+					</div>
+					<div class="container" style="display:none;">
+						<div class="content">
+							<section style="display:none;">
+								<div>
+									<!-- <figure>
+										<picture>
+											<source srcset="https://miro.medium.com/v2/resize:fit:640/format:webp/1*2mC0818w3ugEhOz_Zlkijg.png 640w, https://miro.medium.com/v2/resize:fit:720/format:webp/1*2mC0818w3ugEhOz_Zlkijg.png 720w, https://miro.medium.com/v2/resize:fit:750/format:webp/1*2mC0818w3ugEhOz_Zlkijg.png 750w, https://miro.medium.com/v2/resize:fit:786/format:webp/1*2mC0818w3ugEhOz_Zlkijg.png 786w, https://miro.medium.com/v2/resize:fit:828/format:webp/1*2mC0818w3ugEhOz_Zlkijg.png 828w, https://miro.medium.com/v2/resize:fit:1100/format:webp/1*2mC0818w3ugEhOz_Zlkijg.png 1100w, https://miro.medium.com/v2/resize:fit:3000/format:webp/1*2mC0818w3ugEhOz_Zlkijg.png 3000w" sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 1500px" type="image/webp">
+											<source srcset="https://miro.medium.com/v2/resize:fit:640/1*2mC0818w3ugEhOz_Zlkijg.png 640w, https://miro.medium.com/v2/resize:fit:720/1*2mC0818w3ugEhOz_Zlkijg.png 720w, https://miro.medium.com/v2/resize:fit:750/1*2mC0818w3ugEhOz_Zlkijg.png 750w, https://miro.medium.com/v2/resize:fit:786/1*2mC0818w3ugEhOz_Zlkijg.png 786w, https://miro.medium.com/v2/resize:fit:828/1*2mC0818w3ugEhOz_Zlkijg.png 828w, https://miro.medium.com/v2/resize:fit:1100/1*2mC0818w3ugEhOz_Zlkijg.png 1100w, https://miro.medium.com/v2/resize:fit:3000/1*2mC0818w3ugEhOz_Zlkijg.png 3000w" sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 1500px"><img alt="" class="bg fr fs c" width="1500" height="750" loading="eager" role="presentation" src="https://miro.medium.com/v2/resize:fit:1500/1*2mC0818w3ugEhOz_Zlkijg.png">
+										</picture>
+									</figure> -->
+									<h1>SVG Path Basics</h1>
+									<p>SVG Paths can look incredibly intimidating, with seemingly random numbers and letters scattered throughout. I have recently learned what some of these letters and numbers mean and I want to help out other people out who are as lost as I was.</p>
+									<p>I think the best way to tackle learning SVG Paths is to draw something, so we will attempt to draw a rectangle using a path. Yes we could use <code>rect</code> but learning how to do this with a path will really help us understand how they work.</p>
+									<p>For coding along, I recommend using Codepen or anything that will allow you to see the changes quickly as it is freaking cool to see lines come on the screen from just writing numbers! (well I think it is cool anyway 😎).</p>
+									<p>The first step is creating our basic SVG:</p>
+									<pre><span>&lt;svg height="700" width="500"&gt;</span><span>&lt;/svg&gt;</span></pre>
+									<p>Now we can create an SVG path (everything from this point on will go in between the <code>&lt;svg&gt;</code> tags)</p>
+									<pre><span>&lt;path fill="none" stroke="#3DA4AB" stroke-width="7px" /&gt;</span></pre>
+									<p>Sooooo… nothing will be drawn to the screen (which is expected), but before we start drawing, let me explain the <b>path attributes:</b></p>
+									<p><b>fill — </b>when this is passed a color (hex or string) it will fill in the path with this color</p>
+									<p><b>stroke — </b>what color should our stroke be</p>
+									<p><b>stroke-width — </b>how thick should our stroke be</p>
+									<hr>
+									<p>Ok now onto the fun part, actually drawing, we will add the <b>d </b>(draw) attribute to our path element:</p>
+									<pre><span>&lt;path fill="none" stroke="#3DA4AB" stroke-width="7px" d="" /&gt;</span></pre>
+									<p>We can now pass <b>commands </b>to <b>d </b>and the first one we will pass is <b>m </b>(move), <b>m </b>takes two arguments<b>(x,y)</b> which will set where we will begin drawing (imagine we are holding a pencil to draw with) i.e.</p>
+									<pre><span>&lt;path fill="none" stroke="#3DA4AB" stroke-width="7px" d="M 20 20" /&gt;</span></pre>
+									<!-- <figure>
+										<picture>
+											<source srcset="https://miro.medium.com/v2/resize:fit:640/format:webp/1*sunGPS_Nee4SYDXITIKiIg.png 640w, https://miro.medium.com/v2/resize:fit:720/format:webp/1*sunGPS_Nee4SYDXITIKiIg.png 720w, https://miro.medium.com/v2/resize:fit:750/format:webp/1*sunGPS_Nee4SYDXITIKiIg.png 750w, https://miro.medium.com/v2/resize:fit:786/format:webp/1*sunGPS_Nee4SYDXITIKiIg.png 786w, https://miro.medium.com/v2/resize:fit:828/format:webp/1*sunGPS_Nee4SYDXITIKiIg.png 828w, https://miro.medium.com/v2/resize:fit:1100/format:webp/1*sunGPS_Nee4SYDXITIKiIg.png 1100w, https://miro.medium.com/v2/resize:fit:740/format:webp/1*sunGPS_Nee4SYDXITIKiIg.png 740w" sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 370px" type="image/webp">
+											<source srcset="https://miro.medium.com/v2/resize:fit:640/1*sunGPS_Nee4SYDXITIKiIg.png 640w, https://miro.medium.com/v2/resize:fit:720/1*sunGPS_Nee4SYDXITIKiIg.png 720w, https://miro.medium.com/v2/resize:fit:750/1*sunGPS_Nee4SYDXITIKiIg.png 750w, https://miro.medium.com/v2/resize:fit:786/1*sunGPS_Nee4SYDXITIKiIg.png 786w, https://miro.medium.com/v2/resize:fit:828/1*sunGPS_Nee4SYDXITIKiIg.png 828w, https://miro.medium.com/v2/resize:fit:1100/1*sunGPS_Nee4SYDXITIKiIg.png 1100w, https://miro.medium.com/v2/resize:fit:740/1*sunGPS_Nee4SYDXITIKiIg.png 740w" sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 370px"><img alt="" class="bg fr fs c" width="370" height="291" loading="lazy" role="presentation" src="https://miro.medium.com/v2/resize:fit:370/1*sunGPS_Nee4SYDXITIKiIg.png">
+										</picture>
+										<figcaption>Move our pencil 20,20</figcaption>
+									</figure> -->
+									<p>We have told our SVG that we will start drawing from the coordinates 20,20.</p>
+									<p>The next step is to draw, and for that we will use the <b>l </b>(lineto) command which accepts an <b>x </b>and <b>y </b>argument. Lowercase is relative position whereas uppercase is absolute positioning.</p>
+									<pre><span>&lt;path fill="none" stroke="#3DA4AB" stroke-width="7px" d="M 20 20 l 0 100" /&gt;</span></pre>
+									<p>Our path now looks like:</p>
+									<!-- <figure>
+										<picture>
+											<source srcset="https://miro.medium.com/v2/resize:fit:640/format:webp/1*PL1wa9aOaX1wNBqnjpr_tg.png 640w, https://miro.medium.com/v2/resize:fit:720/format:webp/1*PL1wa9aOaX1wNBqnjpr_tg.png 720w, https://miro.medium.com/v2/resize:fit:750/format:webp/1*PL1wa9aOaX1wNBqnjpr_tg.png 750w, https://miro.medium.com/v2/resize:fit:786/format:webp/1*PL1wa9aOaX1wNBqnjpr_tg.png 786w, https://miro.medium.com/v2/resize:fit:828/format:webp/1*PL1wa9aOaX1wNBqnjpr_tg.png 828w, https://miro.medium.com/v2/resize:fit:1100/format:webp/1*PL1wa9aOaX1wNBqnjpr_tg.png 1100w, https://miro.medium.com/v2/resize:fit:440/format:webp/1*PL1wa9aOaX1wNBqnjpr_tg.png 440w" sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 220px" type="image/webp">
+											<source srcset="https://miro.medium.com/v2/resize:fit:640/1*PL1wa9aOaX1wNBqnjpr_tg.png 640w, https://miro.medium.com/v2/resize:fit:720/1*PL1wa9aOaX1wNBqnjpr_tg.png 720w, https://miro.medium.com/v2/resize:fit:750/1*PL1wa9aOaX1wNBqnjpr_tg.png 750w, https://miro.medium.com/v2/resize:fit:786/1*PL1wa9aOaX1wNBqnjpr_tg.png 786w, https://miro.medium.com/v2/resize:fit:828/1*PL1wa9aOaX1wNBqnjpr_tg.png 828w, https://miro.medium.com/v2/resize:fit:1100/1*PL1wa9aOaX1wNBqnjpr_tg.png 1100w, https://miro.medium.com/v2/resize:fit:440/1*PL1wa9aOaX1wNBqnjpr_tg.png 440w" sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 220px"><img alt="" class="bg fr fs c" width="220" height="147" loading="lazy" role="presentation" src="https://miro.medium.com/v2/resize:fit:220/1*PL1wa9aOaX1wNBqnjpr_tg.png">
+										</picture>
+									</figure> -->
+									<p>Deadly! We have drawn the left side of our rectangle, our pencil will now be at the bottom of the line. Can you guess how to draw the bottom? We can basically do the opposite of above:</p>
+									<pre><span>&lt;path fill="none" stroke="#3DA4AB" stroke-width="7px" d=”M 100 100 l 0 100 <b>l 200 0</b>" /&gt;</span></pre>
+									<!-- <figure>
+										<picture>
+											<source srcset="https://miro.medium.com/v2/resize:fit:640/format:webp/1*3JakBlxn1cbtwIjhwucZ4Q.png 640w, https://miro.medium.com/v2/resize:fit:720/format:webp/1*3JakBlxn1cbtwIjhwucZ4Q.png 720w, https://miro.medium.com/v2/resize:fit:750/format:webp/1*3JakBlxn1cbtwIjhwucZ4Q.png 750w, https://miro.medium.com/v2/resize:fit:786/format:webp/1*3JakBlxn1cbtwIjhwucZ4Q.png 786w, https://miro.medium.com/v2/resize:fit:828/format:webp/1*3JakBlxn1cbtwIjhwucZ4Q.png 828w, https://miro.medium.com/v2/resize:fit:1100/format:webp/1*3JakBlxn1cbtwIjhwucZ4Q.png 1100w, https://miro.medium.com/v2/resize:fit:544/format:webp/1*3JakBlxn1cbtwIjhwucZ4Q.png 544w" sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 272px" type="image/webp">
+											<source srcset="https://miro.medium.com/v2/resize:fit:640/1*3JakBlxn1cbtwIjhwucZ4Q.png 640w, https://miro.medium.com/v2/resize:fit:720/1*3JakBlxn1cbtwIjhwucZ4Q.png 720w, https://miro.medium.com/v2/resize:fit:750/1*3JakBlxn1cbtwIjhwucZ4Q.png 750w, https://miro.medium.com/v2/resize:fit:786/1*3JakBlxn1cbtwIjhwucZ4Q.png 786w, https://miro.medium.com/v2/resize:fit:828/1*3JakBlxn1cbtwIjhwucZ4Q.png 828w, https://miro.medium.com/v2/resize:fit:1100/1*3JakBlxn1cbtwIjhwucZ4Q.png 1100w, https://miro.medium.com/v2/resize:fit:544/1*3JakBlxn1cbtwIjhwucZ4Q.png 544w" sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 272px"><img alt="" class="bg fr fs c" width="272" height="142" loading="lazy" role="presentation" src="https://miro.medium.com/v2/resize:fit:272/1*3JakBlxn1cbtwIjhwucZ4Q.png">
+										</picture>
+										<figcaption>Oh my god! We have the bottom!</figcaption>
+									</figure> -->
+									<p>So we add another <b>l </b>command and we move the pencil <b>200 </b>across the x axis and keep the <b>y </b>position the same.</p>
+									<p>To draw the right hand side of our rectangle, we want our pencil to remain in the same place on <b>x </b>axis but move up <b>200 </b>on the y axis, to move up we add a negative value for <b>y -200.</b></p>
+									<pre><span>&lt;path fill="none" stroke="#3DA4AB" stroke-width="7px" d=”M 100 100 l 0 100 l 200 0<b> l 0 -200</b>" /&gt;</span></pre>
+									<!-- <figure>
+										<picture>
+											<source srcset="https://miro.medium.com/v2/resize:fit:640/format:webp/1*Srfkw4tegHsLUz-Dg0J63A.png 640w, https://miro.medium.com/v2/resize:fit:720/format:webp/1*Srfkw4tegHsLUz-Dg0J63A.png 720w, https://miro.medium.com/v2/resize:fit:750/format:webp/1*Srfkw4tegHsLUz-Dg0J63A.png 750w, https://miro.medium.com/v2/resize:fit:786/format:webp/1*Srfkw4tegHsLUz-Dg0J63A.png 786w, https://miro.medium.com/v2/resize:fit:828/format:webp/1*Srfkw4tegHsLUz-Dg0J63A.png 828w, https://miro.medium.com/v2/resize:fit:1100/format:webp/1*Srfkw4tegHsLUz-Dg0J63A.png 1100w, https://miro.medium.com/v2/resize:fit:540/format:webp/1*Srfkw4tegHsLUz-Dg0J63A.png 540w" sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 270px" type="image/webp">
+											<source srcset="https://miro.medium.com/v2/resize:fit:640/1*Srfkw4tegHsLUz-Dg0J63A.png 640w, https://miro.medium.com/v2/resize:fit:720/1*Srfkw4tegHsLUz-Dg0J63A.png 720w, https://miro.medium.com/v2/resize:fit:750/1*Srfkw4tegHsLUz-Dg0J63A.png 750w, https://miro.medium.com/v2/resize:fit:786/1*Srfkw4tegHsLUz-Dg0J63A.png 786w, https://miro.medium.com/v2/resize:fit:828/1*Srfkw4tegHsLUz-Dg0J63A.png 828w, https://miro.medium.com/v2/resize:fit:1100/1*Srfkw4tegHsLUz-Dg0J63A.png 1100w, https://miro.medium.com/v2/resize:fit:540/1*Srfkw4tegHsLUz-Dg0J63A.png 540w" sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 270px"><img alt="" class="bg fr fs c" width="270" height="155" loading="lazy" role="presentation" src="https://miro.medium.com/v2/resize:fit:270/1*Srfkw4tegHsLUz-Dg0J63A.png">
+										</picture>
+										<figcaption>Nearly there!!</figcaption>
+									</figure> -->
+									<p>Now instead of drawing a line back here, we can use the <b>z </b>command which will draw a line back to the start.</p>
+									<pre><span>&lt;path fill="none" stroke="#3DA4AB" stroke-width="7px" d=”M 100 100 l 0 100 l 200 0 l 0 -200<b> z</b>" /&gt;</span></pre>
+									<!-- <figure>
+										<picture>
+											<source srcset="https://miro.medium.com/v2/resize:fit:640/format:webp/1*f_FpJyJMsDX1RWfSG980sg.png 640w, https://miro.medium.com/v2/resize:fit:720/format:webp/1*f_FpJyJMsDX1RWfSG980sg.png 720w, https://miro.medium.com/v2/resize:fit:750/format:webp/1*f_FpJyJMsDX1RWfSG980sg.png 750w, https://miro.medium.com/v2/resize:fit:786/format:webp/1*f_FpJyJMsDX1RWfSG980sg.png 786w, https://miro.medium.com/v2/resize:fit:828/format:webp/1*f_FpJyJMsDX1RWfSG980sg.png 828w, https://miro.medium.com/v2/resize:fit:1100/format:webp/1*f_FpJyJMsDX1RWfSG980sg.png 1100w, https://miro.medium.com/v2/resize:fit:552/format:webp/1*f_FpJyJMsDX1RWfSG980sg.png 552w" sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 276px" type="image/webp">
+											<source srcset="https://miro.medium.com/v2/resize:fit:640/1*f_FpJyJMsDX1RWfSG980sg.png 640w, https://miro.medium.com/v2/resize:fit:720/1*f_FpJyJMsDX1RWfSG980sg.png 720w, https://miro.medium.com/v2/resize:fit:750/1*f_FpJyJMsDX1RWfSG980sg.png 750w, https://miro.medium.com/v2/resize:fit:786/1*f_FpJyJMsDX1RWfSG980sg.png 786w, https://miro.medium.com/v2/resize:fit:828/1*f_FpJyJMsDX1RWfSG980sg.png 828w, https://miro.medium.com/v2/resize:fit:1100/1*f_FpJyJMsDX1RWfSG980sg.png 1100w, https://miro.medium.com/v2/resize:fit:552/1*f_FpJyJMsDX1RWfSG980sg.png 552w" sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 276px"><img alt="" class="bg fr fs c" width="276" height="151" loading="lazy" role="presentation" src="https://miro.medium.com/v2/resize:fit:276/1*f_FpJyJMsDX1RWfSG980sg.png">
+										</picture>
+										<figcaption>Our beautiful rectangle!</figcaption>
+									</figure> -->
+									<p>We have achieved what we have set out to do, but we can make it easier. We also have the <b>h (horizontal)</b> and <b>v (vertical) </b>commands .</p>
+									<p>Both these commands accept just one argument, the argument tells the command where to move our pencil to. It will simply draw <b>horizontally</b> or <b>vertically</b> to that point.</p>
+									<p>So our path would now look like this, like before we specify where to start drawing from.</p>
+									<pre><span>&lt;path fill="none" stroke="#3DA4AB" stroke-width="4" d="M 100 100 v 100 h 200 v -100 z" /&gt;</span></pre>
+									<p>You see how much cleaner this is? We <b>v</b>ertically move our pencil and then <b>h</b>orizontally move our pencil to create our rectangle.</p>
+									<hr>
+									<p>For a more in depth guide on <b>d attribute</b>, check out this <a href="https://css-tricks.com/svg-path-syntax-illustrated-guide/" rel="noopener ugc nofollow" target="_blank">great article on CSS Tricks.</a></p>
+									<p>I will now be moving onto learning about Bezier Curves and I will be sure to share my findings here.</p>
+									<p>Thanks for reading and I hope you have learned something.</p>
+								</div>
+							</section>
+						</div>
+					</div>
+        </div>
+        <div class="hero-foot">
+          <div class="area">
+            <div class="squares">
+              <!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <animateTransform attributeName="transform" type="translate" values="0 650; 0 -200" dur="15s" keyTimes="0;1" repeatCount="indefinite" />
+        <g>
+        <rect x="10" y="10" width="12" height="12" rx="2" ry="2" fill="rgba(255, 255, 255, 0.2)" />
+        <animateTransform attributeName="transform" type="rotate" from="0 16 16" to="1080 16 16" dur="15s" keyTimes="0;1" repeatCount="indefinite" />
+        </g>
+          
+        </svg>-->
+        
+              <svg class="animated-squares" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMinYMin slice">
+                <!-- Образец -->
+                <defs>
+                  <g><animateTransform attributeName="transform" type="translate" values="0 100; 0 -70" dur="20s" keyTimes="0;1" repeatCount="indefinite" />
+                  <rect id="qq-1" rx="1" ry="1" class="square" x="0" y="0" width="10" height="10" fill="rgba(255, 255, 255, 0.2)">
+                  <animateTransform attributeName="transform" type="rotate" from="0 5 5" to="1080 5 5" dur="12s" repeatCount="indefinite" /></rect></g>
+                </defs>
+                <!-- Клоны -->
+                <g begin="0s">
+                  <animateTransform attributeName="transform" type="translate" values="0 80; 0 -80" dur="17s" keyTimes="0;1" repeatCount="indefinite" />
+                  <use id="clone-1" href="#qq-1" fill="#fff" transform="translate(25 10) scale(1.2)" />
+                  <use id="clone-2" href="#qq-1" fill="#fff" transform="translate(75 60) scale(.68)" />
+                  <use id="clone-3" href="#qq-1" fill="#fff" transform="translate(-35 0) scale(1.03)" />
+                </g>
+                <g begin="4s">
+                  <animateTransform attributeName="transform" type="translate" values="0 150; 0 -120" dur="17s" keyTimes="0;1" repeatCount="indefinite" />
+                  <use id="clone-4" href="#qq-1" fill="#fff" transform="translate(44 33) scale(.75)" />
+                  <use id="clone-5" href="#qq-1" fill="#fff" transform="translate(94 3) scale(.25)" />
+                  <use id="clone-5" href="#qq-1" fill="#fff" transform="translate(74 73) scale(.35)" />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  </body>
+</html>
