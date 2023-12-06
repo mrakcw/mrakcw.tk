@@ -70,7 +70,7 @@
           "name": "Notion tools"}}]}
     </script>
 		<style>
-			.p-img{text-align:center;filter:drop-shadow(0px 0px 6px rgba(0, 0, 0, .2));}
+			.box-img{text-align:center;filter:drop-shadow(0px 0px 6px rgba(0, 0, 0, .2));}
 			.content .is-bold{font-weight:700;}
 			.content .is-italic{font-style:italic;}
 			h1{text-wrap:balance;line-height:1.35;}
@@ -79,6 +79,12 @@
 			article figure.image{display:grid;place-items:center;}
 			article.article__content > figure{ margin: 0 auto 1rem auto;}
 			article figure.image img{height:auto;max-height:400px;width:auto;}
+			.tag:not(body).is-dev{background-color:#FB3;color:#000;font-weight:700;}
+			.is-dev{background-color:#FB3;}
+			.tags.has-addons:hover{filter:drop-shadow(2px 2px 2px rgba(0, 0, 0, .65));}
+			.tags.has-addons .tag{border:groove 1px #9d6900;}
+			.tags.has-addons .tag:first-child{border-right:unset;}
+			.tags.has-addons .tag:last-child{border-left:unset;}
 		</style>
   </head>
   <body>
@@ -183,7 +189,7 @@
 							</ul>
 							<p>Выбираем поле Rollup для новой колонки. Назовем ее "Крайний срок". В настройках этой колонки нужно будет указать интересующую вас колонку, где вы использовали поле Relation, а затем выбрать поле (property), использующееся в сущности, с которой вы сопоставляли строки таблицы (в нашем случае – нужное поле задачи, т.е. Сроки).</p>
 							<p>Теперь, когда вы будете для новой строки в таблице выбирать существующую задачу, в соседней колонке "Крайний срок" будет автоматически прописываться значение из поля "Сроки" указываемой задачи.</p>
-							<div class="p-img"><img loading="lazy" src="/assets/img/2023/led-11.png" width="750" alt="Notion tools" title="Notion tools"></div>
+							<div class="box-img"><img loading="lazy" src="/assets/img/2023/led-11.png" width="530" height="258" alt="Notion tools" title="Notion tools"></div>
 							<ul><li>Время создания и Время последнего изменения – технического характера поля, отображающие соответственно когда сущность создали и когда ее последний раз редактировали.</li></ul>
 							<h3 class="subtitle">Доска Канбан-доска</h3>
 							<p>Доска Канбан-доска Notion не имеет автоматизаций. А вот этапы и поля задач настраиваются очень гибко. Для этого нам доступны все типы полей, которые мы перечисляли выше в разделе "Базы данных".</p>
@@ -211,15 +217,15 @@
 							<h3 class="subtitle mt-6">Картинка</h3>
 							<p>Блок Image позволяет вам создать специальную кнопку, по которой вы сможете загрузить в нужное место картинку. Но это, к слову, необязательно: картику можно загрузить в Notion через Drag&amp;Drop или простой вставкой из буфера обмена.</p>
 							<p>При вставке в этот блок нужной ссылки он сам обработает ее и будет на вашей странице Notion показывать грамотно оформленный блок с названием страницы, описанием и адресом – все это он возьмет с самой страницы, с SEO-тегов.</p>
-							<div class="p-img"><img loading="lazy" src="/assets/img/2023/led-2-2.png" width="750" alt="Notion tools" title="Notion tools"></div>
+							<div class="box-img"><img loading="lazy" src="/assets/img/2023/led-2-2.png" width="530" height="450" alt="Notion tools" title="Notion tools"></div>
 							<h3 class="subtitle">Видео</h3>
 							<p>Блок, аналогичный блоку с картинками. Из основных отличий – если картинки по ссылкам подгружаются где бы они ни были, то не все видео-хостинги по умолчанию будут работать (естественно). Но все основные вроде бы работают.</p>
-							<div class="p-img"><img loading="lazy" src="/assets/img/2023/led-3-2.jpg" width="750" alt="Notion tools" title="Notion tools"></div>
+							<div class="box-img"><img loading="lazy" src="/assets/img/2023/led-3-2.jpg" width="530" height="305" alt="Notion tools" title="Notion tools"></div>
 							<h3 class="subtitle">Аудио</h3> 
 							<p>Еще один схожий по функционалу блок – можно загрузить свой аудио-файл, а можно вставить композицию или подкаст из Spotify или Soundcloud. Достаточно разжиться ссылкой.</p>
 							<h3 class="subtitle">Код</h3>
 							<p>Можно вставить сниппет с кодом. Он распознает большое количество известных языков программирования и сам делает цветовую разметку. Удобно.</p>
-							<div class="p-img"><img loading="lazy" src="/assets/img/2023/led-5-2.png" width="750" alt="Notion tools" title="Notion tools"></div>
+							<div class="box-img"><img loading="lazy" src="/assets/img/2023/led-5-2.png" width="530" height="520" alt="Notion tools" title="Notion tools"></div>
 							<h3 class="subtitle">Файл</h3> 
 							<p>Блок создает кнопку, по которой можно загрузить файл с компьютера. PDF-файлы, размещенные в Интернете, гугл-карты, документы из Google Drive – их можно вставить и просто ссылкой.</p>
 							<hr>
@@ -229,22 +235,22 @@
 							<p>Если нужно что-то вставить со стороннего ресурса, но вы не уверены какой блок выбирать – пробуйте этот.</p>
 							<h3 class="subtitle">Google Drive</h3>
 							<p>Как очевидно следует из названия – это блок для вставки документов с Гугл-диска. По традиции, вы можете оставить просто кнопку для загрузки на будущее или сразу же подгрузить нужный файл. При взаимодействии с этим блоком вам будет также предложено связать аккаунт в Notion с Google-аккаунтом. После этого можно выбирать файлы с вашего Google-диска через удобный интерфейс Google.</p>
-							<div class="p-img"><img loading="lazy" src="/assets/img/2023/led-6-2.png" width="750" alt="Notion tools" title="Notion tools"></div>
+							<div class="box-img"><img loading="lazy" src="/assets/img/2023/led-6-2.png" width="530" height="355" alt="Notion tools" title="Notion tools"></div>
 							<h3 class="subtitle">Tweet</h3> 
 							<p>Врезка из Твита на страницу. Все видели это 100 раз, добавить нечего. GitHub Gist Если вы пишете код сами или копируете его с какого-то источника, можно воспользоваться блоком Код (см. выше).</p>
 							<p>Но если вы копируете код не откуда-нибудь, а именно с GitHub Gist – готовые фрагменты кода можно вставлять прямо с этого ресурса. Нужно только найти ссылку нужной формы (не embed, а share) для вставки.</p>
 							<h3 class="subtitle">Google Maps</h3> 
 							<p>Довольно понятно – вставка карты Google Maps, на большинстве сайтов есть такая в разделе "Контакты" или "Как нас найти".</p>
-							<div class="p-img"><img loading="lazy" src="/assets/img/2023/led-7-2.png" width="750" alt="Notion tools" title="Notion tools"></div>
+							<div class="box-img"><img loading="lazy" src="/assets/img/2023/led-7-2.png" width="530" height="580" alt="Notion tools" title="Notion tools"></div>
 							<h3 class="subtitle">Инструменты создания прототипов для веб-дизайна</h3>
 							<p>В целом все эти инструменты обладают примерно одним функционалом – позволяют создавать прототипы различных элементов веб-дизайна (или даже целых проектов) разной степени интерактивности. После врезки на страницу Notion прототипа можно работать с ним в появившемся окне с полным функционалом.</p>
 							<h3 class="subtitle">Notion может отображать прототипы из Framer, InVision и Figma.</h3>
 							<p>Framer - инструмент для веб-дизайн с уклоном в UX/ UI дизайн. Работает только на MacOS.</p>
 							<p>Invision Еще один дизайнерский инструмент для создания интерактивных прототипов веб-дизайна. Среди клиентов Amazon, HBO и Netflix. Начать работать с InVision можно бесплатно.</p>
-							<div class="p-img"><img loading="lazy" src="/assets/img/2023/led-8.png" width="750" alt="Notion tools" title="Notion tools"></div>
+							<div class="box-img"><img loading="lazy" src="/assets/img/2023/led-8.png" width="530" height="341" alt="Notion tools" title="Notion tools"></div>
 							<h3 class="subtitle">Figma</h3> 
 							<p>И снова инструмент для веб-дизайна.</p>
-							<div class="p-img"><img loading="lazy" src="/assets/img/2023/led-9.png" width="750" alt="Notion tools" title="Notion tools"></div>
+							<div class="box-img"><img loading="lazy" src="/assets/img/2023/led-9.png" width="530" height="288" alt="Notion tools" title="Notion tools"></div>
 							<h3 class="subtitle">PDF</h3> 
 							<p>Вставка PDF-документа. Работает так, как и ожидаешь исходя из названия блока: отображает PDF-документ.</p>
 							<h3 class="subtitle">Loom</h3>
@@ -258,10 +264,10 @@
 							<h2 class="title my-3 is-4">Раздел Advanced Blocks</h2>
 							<h3 class="subtitle mt-6">Содержание</h3>
 							<p>Блок с содержанием и поведением аналогичного блока в Google Docs.</p>
-							<div class="p-img"><img loading="lazy" src="/assets/img/2023/led-10-2.jpg" width="750" alt="Notion tools" title="Notion tools"></div>
+							<div class="box-img"><img loading="lazy" src="/assets/img/2023/led-10-2.jpg" width="530" height="320" alt="Notion tools" title="Notion tools"></div>
 							<h3 class="subtitle">Вставка математического уравнения</h3> 
 							<p>Напечатали математическое уравнение на языке TeX – получили грамотно и красиво оформленное математическое уравнение.</p>
-							<div class="p-img"><img loading="lazy" src="/assets/img/2023/led_1.png" width="750" alt="Notion tools" title="Notion tools"></div>
+							<div class="box-img"><img loading="lazy" src="/assets/img/2023/led_1.png" width="530" height="100" alt="Notion tools" title="Notion tools"></div>
 							<h3 class="subtitle">Кнопка шаблона</h3> 
 							<p>Позволяет создавать и затем использовать готовый блок по шаблону используя "Кнопка шаблона".</p>
 							<h3 class="subtitle">Хлебные крошки</h3>
@@ -275,9 +281,9 @@
 						</blockquote>
 					</article>
 					<!--? Tags -->
-					<div class="field is-grouped is-grouped-multiline is-grouped-centered">
-						<div class="control"><div class="tags has-addons"><span class="tag is-link">Dev</span><span class="tag is-warning">Notes</span></div></div>
-						<div class="control"><div class="tags has-addons"><span class="tag is-danger">Blog</span><span class="tag has-addons is-warning">Notion</span></div></div>
+					<div class="field is-grouped is-grouped-multiline is-grouped-centered has-text-weight-bold">
+						<div class="control"><div class="tags has-addons"><span class="tag is-dev has-text-black">Dev</span><span class="tag is-white has-text-black">Notes</span></div></div>
+						<div class="control"><div class="tags has-addons"><span class="tag is-dev has-text-black">Blog</span><span class="tag is-white has-text-black">Notion</span></div></div>
 					</div>
 				</div>
 				<!-- ? END IV CONTENT -->
