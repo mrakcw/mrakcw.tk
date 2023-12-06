@@ -75,6 +75,7 @@
 			h1{text-wrap:balance;}
 			body a{color:#FFF;display:inline-block;height:auto;padding:0 4px;border-radius:4px;}
 			body a:hover{color: #FB3;text-decoration:underline;background-color:rgba(255,255,255,.15);}
+			article figure.image{display:grid;place-items:center;}
 		</style>
   </head>
   <body>
@@ -85,18 +86,20 @@
 				<!-- ? START IV CONTENT -->
 				<div itemscope="itemscope" itemtype="http://schema.org/Article" class="article__container container article" id="article">
 					<article itemprop="articleBody" class="article__content">
-						<!-- ? Cover Article Img & Heading #1 -->
+						<!-- ? Heading #1 -->
 						<h1 class="title has-text-centered is-3" itemprop="headline">Notion Basic - основные понятия и элементы в NOTION 🧙</h1>
-						<figure class="image is-hidden" itemscope="itemscope" itemtype="http://schema.org/ImageObject" style="display:grid;place-items:center;" itemprop="image">
-							<!-- width="600" height="300" -->
+						<!-- ? Cover Article Img -->
+						<figure class="image is-hidden" itemscope="itemscope" itemprop="image" itemtype="http://schema.org/ImageObject">
 							<img src="/assets/img/2023/notion-1.png" width="760" height="529" alt="Notion" itemprop="contentUrl" class="is-centered is-rounded">
 							<figcaption></figcaption>
 						</figure>
 						<hr>
+						<!-- ? Inline nav links -->
 						<blockquote class="small">
-							<p class="small has-text-centered mb-0"><a href="/" title="Main page">👑 MRAKCW</a> / <a href="/notes/" title="Dev notes page">DEV NOTES 🚀</a></p>
+							<p class="small has-text-centered mb-0"><a href="/" title="Main page">👑 MRAKCW</a> | <a href="/notes/" title="Dev notes page">DEV NOTES 🚀</a></p>
 						</blockquote>
 						<hr>
+						<!-- ? Content box -->
 						<div class="container content">
 							<h2 class="title my-3 is-4">Notion Basic</h2>
 							<p>Все в Notion создается из блоков различных типов, которые вы комбинируете до достижения нужного результата.</p>
@@ -274,11 +277,7 @@
 				</div>
 				<!-- ? END IV CONTENT -->
 			</div>
-			<!-- ! hero-foot -->
-			<div class="hero-foot">
-				<div class="area" ><ul class="circles"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></div>
-			</div>
-			<div class="container text-center copyright mt-6 has-text-centered">
+			<div class="container text-center copyright mb-5 has-text-centered">
 				<p><a href="/" title="Go Home" class="disabled active">🏠 &nbsp;GO HOME</a> | <a href="/privacy-policy/">Privacy Policy</a></p>
 				<p> © 2021-2023 GitHub, Inc.</p>
 			</div>
