@@ -50,8 +50,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jura:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma-helpers/0.4.3/css/bulma-helpers.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulmaswatch/0.8.1/cyborg/bulmaswatch.min.css">
+    <link rel="stylesheet" href="/assets/css/bulma-helpers.css">
+    <link rel="stylesheet" href="/assets/css/bulmaswatch.min.css">
     <style>
       :root{
         --hover-t: all .45s cubic-bezier(0.9, 0.1, 0.4, 0.7) 0s;
@@ -293,7 +293,7 @@
         <!-- ! hero-body -->
         <div class="hero-body">
           <div class="container columns is-vcentered is-centered" id="hello">
-            <figure itemscope="itemscope" itemtype="http://schema.org/ImageObject" class="image column is-narrow-desktop">
+            <figure itemscope itemtype="http://schema.org/ImageObject" class="image column is-narrow-desktop">
               <a id="article-img" onclick="window['some-dialog-id'].show()" aria-controls="some-dialog-id">
                 <img class="image is-rounded" src="/assets/img/mrakcw.jpg" itemprop="contentUrl" width="200" height="200" alt="MrakCw Dev" title="MrakCw">
               </a>
@@ -304,17 +304,17 @@
               <p class="title has-text-white pb-4 is-2">HI THERE 👋</p>
               <p class="subtitle is--4"> WEB DEV PROJECT 📘<br>Instant View 🌐</p>
               <button class="button is-success is-rounded is-outlined px-6 has-text-weight-bold" type="button" onclick="window['some-dialog-id'].show()" aria-controls="some-dialog-id">Open content </button>
-              <a class="button is-success is-rounded is-outlined px-6 has-text-weight-bold" id="get-contact" href="#" title="Meet with me"></a>
+              <a class="button is-success is-rounded is-outlined px-6 has-text-weight-bold" id="get-contact" title="Meet with me"></a>
             </div>
           </div>
           <!-- ? START IV CONTENT -->
           <dialog class="dialog text-dark" id="some-dialog-id">
-            <div itemscope="itemscope" itemtype="http://schema.org/Article" class="article__container container article" id="article">
+            <div itemscope itemtype="http://schema.org/Article" class="article__container container article" id="article">
               <article itemprop="articleBody" class="article__content">
                 <!-- ? Cover Article Img & Heading #1 -->
-                <figure itemscope="itemscope" itemtype="http://schema.org/ImageObject" class="d-none">
+                <figure itemscope itemtype="http://schema.org/ImageObject" class="d-none">
                   <!-- width="600" height="300" -->
-                  <img src="/assets/img/dev-cover.jpeg" alt="Dev Notes cover by MrakCw" itemprop="contentUrl">
+                  <img src="/assets/img/dev-cover.jpeg" alt="Dev Notes cover by MrakCw" itemprop="image">
                   <figcaption itemprop="description"></figcaption>
                 </figure>
                 <blockquote class="is-hidden">
@@ -392,7 +392,7 @@
 				</div>
       </div>
       <!--! Calendly badge widget -->
-      <script src="/assets/js/widget.js" async></script>
+      <script src="/assets/js/widget.min.js" async></script>
       <!--? Calendly badge widget -->
       <script>
         window.onload = function() {
