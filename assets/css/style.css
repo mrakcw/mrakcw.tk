@@ -9,11 +9,12 @@
 
 
 /* ! bulma-prefers-dark options */
+/* https://codepen.io/MrakCw/pen/oNmOZYX */
 /*
 body { background-color: var(--light); transition: all 0.4s ease; }
-body .subtitle, body .title { color: var(--dark);}
+body :is(.subtitle,.title) { color: var(--dark);}
 body.dark { background-color: var(--dark); color: var(--light); }
-body.dark .subtitle, body.dark .title { color: var(--light); }
+body.dark :is(.subtitle,.title) { color: var(--light); }
 button{ color: var(--light); background: var(--dark); }
 body.dark button { background: var(--light); color: var(--dark);}
 */
