@@ -1,8 +1,6 @@
 ---
-id: nmyiigp4
 title: Research plan
-file_version: 1.1.3
-app_version: 1.18.45
+file_version: 1.0.0
 ---
 
 ## Background

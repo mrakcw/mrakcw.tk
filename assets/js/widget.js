@@ -3212,6 +3212,7 @@
               }
               )) : function(t) {
                 if (void 0 === g) {
+                  // file deepcode ignore OperatorPrecedence: <please specify a reason of ignoring this>
                   var e = !!t && !0 === t.reserveScrollBarGap
                     , r = window.innerWidth - document.documentElement.clientWidth;
                   if (e && r > 0) {

@@ -1,8 +1,6 @@
 ---
-id: aqfa0o23
 title: Dev environment setup
-file_version: 1.1.3
-app_version: 1.18.45
+file_version: 1.0.0
 ---
 
 To run your local dev environment you will need a few things on your machine. Follow the steps below.

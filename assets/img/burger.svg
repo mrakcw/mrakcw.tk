@@ -1,13 +1,3 @@
-<svg version="1.1" id="burger" class="hb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" stroke="#eee" stroke-width=".9" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer">
-  <path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7">
-    <animate dur="0.2s" attributeName="d" values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7" fill="freeze" begin="start.begin" />
-    <animate dur="0.2s" attributeName="d" values="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7;M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7" fill="freeze" begin="reverse.begin" />
-  </path>
-  <rect width="10" height="10" stroke="none">
-    <animate dur="2s" id="reverse" attributeName="width" begin="click" />
-  </rect>
-  <rect width="10" height="10" stroke="none">
-    <animate dur="0.001s" id="start" attributeName="width" values="10;0" fill="freeze" begin="click" />
-    <animate dur="0.001s" attributeName="width" values="0;10" fill="freeze" begin="reverse.begin" />
-  </rect>
+<svg viewBox="0 0 512 512" width="100" title="hat-wizard">
+  <path d="M496 448H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h480c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16zm-304-64l-64-32 64-32 32-64 32 64 64 32-64 32-16 32h208l-86.41-201.63a63.955 63.955 0 0 1-1.89-45.45L416 0 228.42 107.19a127.989 127.989 0 0 0-53.46 59.15L64 416h144l-16-32zm64-224l16-32 16 32 32 16-32 16-16 32-16-32-32-16 32-16z" />
 </svg>

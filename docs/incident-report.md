@@ -1,8 +1,6 @@
 ---
-id: sviqttfy
 title: Incident report
-file_version: 1.1.3
-app_version: 1.18.45
+file_version: 1.0.0
 ---
 
 Here is a list of guided questions that should make it easier to identify what happened and what we can do better.

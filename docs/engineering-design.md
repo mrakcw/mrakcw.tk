@@ -1,8 +1,6 @@
 ---
-id: cc3md5c1
 title: Engineering design
-file_version: 1.1.3
-app_version: 1.18.45
+file_version: 1.0.0
 ---
 
 ## References

@@ -1,8 +1,6 @@
 ---
-id: pa2taaj3
 title: A flow in the code
-file_version: 1.1.3
-app_version: 1.18.45
+file_version: 1.0.0
 ---
 
 ## Introduction

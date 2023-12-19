@@ -1,8 +1,6 @@
 ---
-id: jflx60kr
 title: Component or service overview
-file_version: 1.1.3
-app_version: 1.18.45
+file_version: 1.0.0
 ---
 
 ## Introduction

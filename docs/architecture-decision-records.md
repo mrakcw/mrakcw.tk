@@ -1,8 +1,6 @@
 ---
-id: 57g72ixf
 title: Architecture decision records
-file_version: 1.1.3
-app_version: 1.18.45
+file_version: 1.0.0
 ---
 
 This template is based on Architecture Decision Records, as described by Michael Nygard in this article: [Documenting Architecture Decisions](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions).
