@@ -176,3 +176,11 @@ a:focus-visible{outline:unset;}
 @keyframes AnimateBG{ 0%{ background-position: 0% 50%;} 50%{ background-position: 100% 50%;} 100%{ background-position: 0% 50%;}}
 @keyframes dynamic-bg{0%{ transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 0}100%{ transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%}}
 @keyframes calendly-bouncedelay{0%,80%,100%{transform:scale(0)}40%{transform:scale(1)}}
+
+/* ! SOMETHIN NEW */
+/* 
+
+<div class="responsive_page_content_overlay"></div> 
+
+*/
+.responsive_page_content_overlay {visibility:hidden;opacity:0;background:rgba( 0, 0, 0, 0.4);position:fixed;top:0;right:0;bottom:0;left:0;z-index:25;transition:visibility 0.5s, opacity 0.5s;}
