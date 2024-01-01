@@ -33,7 +33,7 @@ label[for="menuToggle"] svg{ width: 100%; height: 100%; max-width: 2em; max-heig
 .navbar-item img{ width:100%;height:100%;pointer-events:none;}
 .navbar-brand a {transition: var(--hover-t);}
 /* Need to attention */
-.navbar-brand a:hover {filter: invert(1) drop-shadow(-.25px -.26px .15px #fb3) drop-shadow(1px 1px 0px #fb3);transition: var(--hover-t);}
+.navbar-brand a:hover {filter: invert(1) drop-shadow(0px 0px 3px #fb3);transition: var(--hover-t);}
 .navbar-brand a img {max-height:44px;filter: drop-shadow(.5pt 0pt 0px #fff) drop-shadow(-.5pt -.5pt 0px #fff);transition: var(--hover-t);}
 /* Need to attention */
 .iv-template{ background: rgb(2, 0, 36); background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 5%, #3431ec 51%, rgba(42, 10, 44, 1) 95%); background-size: 350% 350%; -webkit-animation: AnimateBG 20s ease infinite; animation: AnimateBG 20s ease infinite;overflow: auto;}
@@ -112,7 +112,7 @@ svg.hb{transform:scale(1.5);}
 	/* #menuToggle:checked + .navbar-burger li{width:100%;margin: 0 auto;opacity:1;transition:opacity 0.35s ease;-webkit-transition:opacity 0.35s ease;-moz-transition:opacity 0.35s ease;-ms-transition:opacity 0.35s ease;-o-transition:opacity 0.35s ease;display:grid;} */
 	.navbar>.container{display:flex;align-items:center;justify-content:space-between;max-height:58px;}
 	.navbar-end.touch{display:inline-flex;}
-	.navbar-end.touch svg{width: 2.2em;height:36px;}
+	.navbar-end.touch svg{width: 2rem;height:2rem;}
 	.navbar-end.touch label{ display: grid; place-items: center}
 	.navbar-burger{ position:absolute; width:-webkit-fill-available; min-width:fit-content; height:fit-content; min-height:90vh; background:#2a2a2a50; margin:auto; padding:0 1rem; display:flex; flex-direction:column; justify-content:center;z-index: 9; }
 	ul.navbar-burger{width:50%;display:flex;padding:1.5rem;transition:all .35s ease-in;-webkit-transition:all .35s ease-in;-moz-transition:all .35s ease-in;-ms-transition:all .35s ease-in;-o-transition:all .35s ease-in;}
