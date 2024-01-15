@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta name="robots" content="noindex, nofollow, noarchive">
+		<title>Cover page</title>
+		<meta name="description" content="MrakCw - Already today to begin create your professional developer CV & work profile 📋 And belivet, soon you to take offer of your dreams 🚀">
+		<meta name="keywords" content="mrakcw, dev, developer, front-end,	web, new, title, page, MrakCw TK - prototype and buiding new web title page 🚀">
+
+		<meta name="application-name" content="MrakCw Dev">
+    <meta name="copyright" content="&copy; MrakCw | 2023">
+    <meta name="theme-color" content="#FB3">
+    <link rel="icon" href="/assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/assets/favicon/favicon-16x16.png" type="image/png" sizes="16x16">
+    <link rel="icon" href="/assets/favicon/favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+		<style>
+			:root{
+				color-scheme: light dark;
+				--custom-light: #ffffff;
+				--custom-dark: #000000;
+				--dark: var(--custom-dark);
+				--light: var(--custom-light);
+				--transition: all 0.4s ease;
+				--hue:223;
+				--bg:hsl(var(--hue),10%,100%);
+				--fg:hsl(var(--hue),10%,0%);
+				--primary:hsl(var(--hue),90%,55%);
+				--primaryT:hsla(var(--hue),90%,55%,0);
+				--transDur:0.3s;
+
+				/* --hue: 420; */
+				/* --bg: oklch(35% .3 var(--hue)); */
+				--text: oklch(85% .1 var(--hue));
+				--shadow: oklch(25% .2 var(--hue));
+				--highlight: oklch(98% .05 var(--hue));
+			}
+
+
+
+			* {border:0;box-sizing:border-box;margin:0;padding:0;}
+			/* body{color: #4a4a4a;background-color: #ffffff;} */
+			/* Light scheme */
+			body:not(#color-scheme:checked){
+				color: #4a4a4a;
+				background-color: #ffffff;
+				transition: var(--transition);
+			}
+			
+			
+			/* Dark scheme */
+			body:has(#color-scheme:checked){
+				color: #ffffff;
+				background-color: #4a4a4a;
+				transition: var(--transition);
+			}
+
+			.title,strong{color: #363636;}
+			.subtitle{color: #4a4a4a;}
+			
+			/* person styles */
+			.hero.is-fullheight {min-height:100svh;overflow-y:hidden;}
+			nav.navbar.border {border-bottom: 3px #fb3 solid;border-top: 3px #fb3 solid;height: 64px;}
+			.navbar>.container{height:100%;position: relative;}
+			.navbar>.container>div{height:100%;}
+			.navbar-burger{height:100%;width:58px;padding:5px;}
+			.navbar-burger svg{stroke:#000;cursor:pointer;stroke-linecap:round;stroke-width:.75;fill:rgba(0,0,0,0);}
+			.navbar-item img {max-height:42px;}
+			.navbar-color{display:grid;place-items:center;width: calc(100% - 315px);}
+			/* .navbar-brand .navbar-item:first-child{width: 232px;} */
+			
+			@media screen and (max-width: 1023px){
+				
+				.navbar-burger #burger[type=checkbox]{display:none;}
+				.navbar-burger label{display:inherit;height:48px;}
+				#burgerMenu {display:flex;flex-direction:column;position:absolute;width:auto;min-width:258px;top:61px;min-height:100svh;visibility:hidden;border-right: 3px #fb3 solid;left:-100svw;transition: var(--transition);}
+				.navbar-brand:has(#burger[type=checkbox]:checked) ~ #burgerMenu{visibility:visible;left:0;transition: var(--transition);}
+				#burgerMenu ul{width:auto;padding-block-start:1rem;display:flex;flex-direction:column;gap:5px;}
+				#burgerMenu ul li{font-size: 1.25rem;}
+				#burgerMenu ul li a{padding-inline:2.5rem;}
+				#burgerMenu .field{flex-direction:column;align-items:center;gap:1rem;}
+			}
+			
+			@media screen and (min-width: 1024px){
+				#burgerMenu .field{display: none;}
+				#burgerMenu ul{align-items: center;}
+
+			}
+			.hero-body img{padding:5px;border:1px solid #ccc;}
+			/* @media (prefers-color-scheme: dark) {} */
+		</style>
+		<script>
+
+		</script>
+		<link rel="stylesheet" href="/assets/css/components.css">
+	</head>
+
+	<body>
+		<section class="hero is-fullheight is-default is-bold">
+			<div class="hero-head">
+				<nav class="navbar border" role="navigation" aria-label="main navigation">
+					<div class="container">
+						<div class="navbar-brand">
+							<a class="navbar-item" href="#"><img src="//mrakcw.tk/assets/img/logo/mr-navbar.svg" width="232" height="42" alt="MrakCw logo" title="Go home"></a>
+							<a role="button" class="navbar-color" aria-label="color-scheme">
+								<label for="color-scheme" class="theme">
+									<span class="theme__toggle-wrap">
+										<input id="color-scheme" class="theme__toggle" type="checkbox" role="switch" name="theme" value="dark">
+										<span class="theme__icon"><span class="theme__icon-part"></span><span class="theme__icon-part"></span><span class="theme__icon-part"></span><span class="theme__icon-part"></span><span class="theme__icon-part"></span><span class="theme__icon-part"></span><span class="theme__icon-part"></span><span class="theme__icon-part"></span><span class="theme__icon-part"></span></span>
+									</span>
+								</label>
+							</a>
+							<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="burgerMenu">
+								<label>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" aria-hidden="true"><path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7"><animate dur="0.2s" attributeName="d" values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7" fill="freeze" begin="start.begin" /><animate dur="0.2s" attributeName="d" values="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7;M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7" fill="freeze" begin="reverse.begin" /></path><rect width="10" height="10" stroke="none"><animate dur="2s" id="reverse" attributeName="width" begin="click" /></rect><rect width="10" height="10" stroke="none"><animate dur="0.001s" id="start" attributeName="width" values="10;0" fill="freeze" begin="click" /><animate dur="0.001s" attributeName="width" values="0;10" fill="freeze" begin="reverse.begin" /></rect></svg>
+									<input type="checkbox" id="burger">
+								</label>
+							</a>
+						</div>
+						<div id="burgerMenu" class="navbar-menu">
+							<ul class="navbar-end">
+								<li><a class="navbar-item"> Tag </a></li>
+								<li><a class="navbar-item"> Author </a></li>
+								<li><a class="navbar-item"> Style Guide </a></li>
+							</ul>
+							<hr>
+							<div class="field is-grouped">
+								<div class="control">
+									<div class="tags has-addons"><a class="tag is-link" href="https://mrakcw.tk/">MrakCw</a><span class="tag is-warning">Dev</span></div>
+								</div>
+								<div class="control">
+									<div class="tags has-addons"><span class="tag is-danger">Bulma collection</span><span class="tag has-addons is-warning">v.1.0</span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</div>
+			<div class="hero-body">
+				<div class="container has-text-centered">
+					<div class="columns is-vcentered">
+						<div class="column is-5">
+							<figure class="image is-4by3"><img src="https://picsum.photos/800/600/?random" alt="Description"></figure>
+						</div>
+						<div class="column is-6 is-offset-1">
+							<h1 class="title is-2">Superhero Scaffolding</h1>
+							<h2 class="subtitle is-4">Let this cover page describe a product or service.</h2>
+							<p class="has-text-centered"><a class="button is-medium is-info is-outlined">Learn more</a></p>
+							<hr>
+							<div class="field is-grouped is-grouped-multiline is-grouped-centered">
+								<div class="control">
+									<div class="tags has-addons"><a class="tag is-link" href="https://mrakcw.tk/">MrakCw</a><span class="tag is-warning">Dev</span></div>
+								</div>
+								<div class="control">
+									<div class="tags has-addons"><span class="tag is-danger">Bulma collection</span><span class="tag has-addons is-warning">v.1.0</span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="hero-foot">
+				<div class="container">
+					<div class="content has-text-centered">
+						<p><strong>Bulma</strong> made with ❤ | 2023</p><br>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+
+</html>
